@@ -34,21 +34,25 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            height: 80px; /* Sabit yükseklik */
+            height: 80px;
         }
 
         /* LOGO AYARLARI */
         .nav-logo {
-            height: 60px; /* Logo yüksekliği */
+            height: 55px; 
             width: auto;
             margin-top: 5px;
+            /* Logo arka planı */
+            background: rgba(255,255,255,0.1); 
+            border-radius: 4px;
+            padding: 2px;
         }
 
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
         nav a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; font-weight: 500; }
         nav a:hover { color: var(--accent); }
 
-        /* HERO SECTION (BANNER) */
+        /* HERO SECTION */
         .hero {
             height: 100vh;
             display: flex;
@@ -56,7 +60,7 @@
             justify-content: center;
             align-items: flex-start;
             padding: 0 10%;
-            /* Banner görseli burada çağırılıyor */
+            /* Banner görseli */
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.7)), url('banner.jpg');
             background-size: cover;
             background-position: center;
@@ -64,12 +68,11 @@
             color: var(--white);
         }
 
-        /* GÜNCELLENDİ: Daha büyük slogan */
         .hero h3 { 
             color: var(--accent); 
             font-family: 'Courier New', monospace; 
             margin-bottom: 25px; 
-            font-size: 1.8rem; /* Büyütüldü */
+            font-size: 1.8rem; 
             font-weight: 700; 
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -88,6 +91,7 @@
             transition: all 0.3s;
             display: inline-block;
             border-radius: 4px;
+            cursor: pointer;
         }
         .btn:hover { background-color: rgba(100, 255, 218, 0.1); transform: translateY(-2px); }
 
@@ -134,7 +138,25 @@
         .book-section { background-color: #f0f2f5; display: flex; align-items: center; gap: 60px; padding: 80px 10%; border-radius: 10px; }
         .book-cover { width: 320px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: rotate(-3deg); border: 8px solid #fff; transition: transform 0.3s;}
         .book-cover:hover { transform: rotate(0deg) scale(1.02); }
-        
+
+        /* VIP FORM STYLES */
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border-top: 5px solid var(--primary);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
+        .form-control {
+            width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; background-color: #f9f9f9;
+        }
+        .form-control:focus { border-color: var(--primary); outline: none; background-color: #fff; }
+
         /* FOOTER */
         footer { background: var(--primary); color: var(--text-dim); text-align: center; padding: 50px 10%; font-size: 0.95rem; }
         .social-links { margin-top: 20px; }
@@ -144,12 +166,13 @@
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .hero h3 { font-size: 1.2rem; } /* Mobilde küçültüldü */
+            .hero h3 { font-size: 1.2rem; }
             .about-grid, .book-section { grid-template-columns: 1fr; display: block; }
             .book-cover { margin: 0 auto 40px auto; display: block; width: 250px; }
             nav { display: none; } 
-            .nav-logo { height: 45px; } /* Mobilde logo ayarı */
+            .nav-logo { height: 45px; }
             header { height: 60px; padding: 0.5rem 5%; }
+            .contact-container { padding: 20px; }
         }
     </style>
 </head>
@@ -160,10 +183,11 @@
         <nav>
             <ul>
                 <li><a href="#about">Founder</a></li>
-                <li><a href="#services">Strategic Solutions</a></li>
-                <li><a href="#book">The Baird Effect</a></li>
+                <li><a href="#services">Solutions</a></li>
+                <li><a href="#book">The Book</a></li>
+                <li><a href="#resources">Resources</a></li>
                 <li><a href="https://www.linkedin.com/in/drckarakaya/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                <li><a href="#contact" style="color:var(--accent); border: 1px solid var(--accent); padding: 8px 15px; border-radius: 4px;">Contact</a></li>
+                <li><a href="#contact" style="color:var(--accent); border: 1px solid var(--accent); padding: 8px 15px; border-radius: 4px;">Apply</a></li>
             </ul>
         </nav>
     </header>
@@ -241,14 +265,90 @@
         </div>
     </section>
 
-    <section id="contact" style="text-align:center; padding-bottom: 50px;">
-        <h2 class="section-title">Start Your Transformation</h2>
-        <p style="max-width:600px; margin:0 auto 40px auto; font-size:1.2rem;">
-            I work with a limited number of clients to ensure high-precision execution. Tell me about your strategic challenge.
+    <section id="resources" style="background-color: #fff; padding: 80px 10%; text-align: center;">
+        <h2 class="section-title">Publications & Resources</h2>
+        <p style="margin-bottom: 50px; color: #666; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Sharing knowledge is part of my mission. Access my published works and community guides below.
         </p>
-        <a href="mailto:ck@tr2uk.com" class="btn" style="background:var(--primary); color:#fff; border:none; padding: 20px 40px; font-size: 1.2rem;">Email: ck@tr2uk.com</a>
-        <br><br><br>
-        <p><small>Based in Hastings, East Sussex, United Kingdom</small></p>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; text-align: left;">
+            
+            <div style="flex: 1; min-width: 300px; background: #f9f9f9; padding: 30px; border-radius: 8px; border-left: 5px solid var(--accent);">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">🇬🇧 UK Business Guide (2025)</h3>
+                <span style="background: var(--primary); color: #fff; padding: 2px 8px; font-size: 0.8rem; border-radius: 4px;">Free Community Gift</span>
+                <p style="font-size: 0.95rem; margin: 15px 0; color: #555;">
+                    The essential handbook for Turkish entrepreneurs in the UK. Over 1 year of free distribution to the network.
+                </p>
+                <a href="guide.pdf" target="_blank" class="btn" style="padding: 10px 20px; font-size: 0.9rem;">
+                    <i class="fas fa-file-pdf"></i> Download PDF
+                </a>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: #888;">
+                    <em>*2026 Edition is currently in production. Stay tuned!</em>
+                </p>
+            </div>
+
+            <div style="flex: 1; min-width: 300px; background: #f9f9f9; padding: 30px; border-radius: 8px; border-left: 5px solid #4285F4;">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">🎧 Audiobooks on Google Play</h3>
+                <p style="font-size: 0.95rem; margin: 15px 0; color: #555;">
+                    Listen to strategic insights on the go. Available now on Google Play Books & Audio.
+                </p>
+                <div style="display: flex; gap: 10px; flex-direction: column;">
+                    <a href="https://play.google.com/store/audiobooks/details?id=AQAAAEDq3WudkM" target="_blank" style="text-decoration: none; color: #4285F4; font-weight: bold;">
+                        <i class="fas fa-headphones"></i> Listen to Audiobook &rarr;
+                    </a>
+                    <a href="https://play.google.com/store/books/details?id=q1yfEQAAQBAJ" target="_blank" style="text-decoration: none; color: #4285F4; font-weight: bold;">
+                        <i class="fas fa-book"></i> View on Google Books &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" style="text-align:center; padding-bottom: 80px;">
+        <h2 class="section-title">Apply for Strategic Consultation</h2>
+        <p style="max-width:600px; margin:0 auto 40px auto; font-size:1.1rem;">
+            I work with a limited number of clients to ensure high-precision execution. Please provide brief details about your strategic challenge.
+        </p>
+        
+        <div class="contact-container">
+            <form action="https://formspree.io/f/mjgevzna" method="POST">
+                
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="name" class="form-control" required placeholder="Name Surname">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Company / Role</label>
+                    <input type="text" name="company" class="form-control" required placeholder="Company Name & Position">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" required placeholder="official@company.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Consultation Type</label>
+                    <select name="type" class="form-control">
+                        <option value="Market Entry">UK Market Entry (Tripod Model)</option>
+                        <option value="Crisis Resolution">Strategic Crisis Resolution</option>
+                        <option value="Innovation/R&D">Innovation & R&D Funding</option>
+                        <option value="Other">Other Strategic Advisory</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Strategic Challenge (Brief)</label>
+                    <textarea name="message" class="form-control" rows="4" placeholder="Briefly describe the deadlock or goal..."></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="background:var(--primary); color:#fff; border:none; width:100%; font-size:1.1rem;">
+                    Submit Application
+                </button>
+            </form>
+        </div>
     </section>
 
     <footer>

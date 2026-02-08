@@ -15,8 +15,6 @@
             --text-dim: #8892b0;
             --white: #ffffff;
             --bg: #f4f4f4;
-            --amazon: #FF9900;
-            --google: #4285F4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -136,12 +134,28 @@
             background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; flex: 1; min-width: 280px; border-top: 5px solid var(--primary);
         }
         
-        /* BUTTONS */
-        .btn-amazon, .btn-google, .btn-download { color: #fff; border: none; padding: 10px; width: 100%; text-align: center; margin-bottom: 8px; border-radius: 4px; font-weight: bold; text-decoration: none; display: block; font-size: 0.9rem;}
-        .btn-amazon { background-color: var(--amazon); }
-        .btn-google { background-color: var(--google); }
-        .btn-download { background-color: #27ae60; }
-        .btn-amazon:hover, .btn-google:hover, .btn-download:hover { opacity: 0.9; transform: translateY(-2px); }
+        /* UNIFIED BUTTONS (YENİ TASARIM) */
+        .btn-resource { 
+            background-color: var(--primary); 
+            color: #fff; 
+            border: none; 
+            padding: 12px; 
+            width: 100%; 
+            text-align: center; 
+            margin-bottom: 10px; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            text-decoration: none; 
+            display: block; 
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        .btn-resource:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        
+        /* ICONS COLORS */
+        .icon-amazon { color: #FF9900; margin-right: 8px; font-size: 1.1rem; }
+        .icon-google { color: #4285F4; margin-right: 8px; font-size: 1.1rem; }
+        .icon-pdf { color: #27ae60; margin-right: 8px; font-size: 1.1rem; }
 
         /* CONTACT */
         .contact-container { max-width: 600px; margin: 0 auto; text-align: left; background: #fff; padding: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 8px; border-top: 5px solid var(--primary); }
@@ -287,8 +301,8 @@
                     "Ya en büyük başarısız fikirleriniz, yarının kazanan girişimleri olsaydı?"<br><br>
                     Dr. Çetin Karakaya bu kitabında, girişimcilerin bugünün yapay zeka araçlarını kullanarak projelerini nasıl yeniden icat edebileceklerini anlatıyor.
                 </p>
-                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-amazon" style="display:inline-block; width:auto;">
-                    <i class="fab fa-amazon"></i> Amazon'dan İncele
+                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-resource" style="display:inline-block; width:auto;">
+                    <i class="fab fa-amazon icon-amazon"></i> Amazon'dan İncele
                 </a>
             </div>
         </div>
@@ -308,8 +322,8 @@
                 <p style="font-size: 0.95rem; margin: 15px 0; color: #333;">
                     İngiltere'deki Türk girişimciler için temel el kitabı. Topluluk üyelerine ücretsiz.
                 </p>
-                <a href="guide.pdf" target="_blank" class="btn-download">
-                    <i class="fas fa-file-pdf"></i> PDF İndir
+                <a href="guide.pdf" target="_blank" class="btn-resource">
+                    <i class="fas fa-file-pdf icon-pdf"></i> PDF İndir
                 </a>
                 <p style="margin-top: 10px; font-size: 0.8rem; color: #777;">
                     <em>*2026 Sürümü hazırlanmaktadır.</em>
@@ -321,11 +335,11 @@
                 <p style="font-size: 0.95rem; margin: 15px 0; color: #333;">
                     Stratejik içgörülere global platformlardan ulaşın.
                 </p>
-                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-amazon">
-                    <i class="fab fa-amazon"></i> Amazon
+                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-resource">
+                    <i class="fab fa-amazon icon-amazon"></i> Amazon
                 </a>
-                <a href="https://play.google.com/store/books/details?id=q1yfEQAAQBAJ" target="_blank" class="btn-google">
-                    <i class="fab fa-google-play"></i> Google Play
+                <a href="https://play.google.com/store/books/details?id=q1yfEQAAQBAJ" target="_blank" class="btn-resource">
+                    <i class="fab fa-google-play icon-google"></i> Google Play
                 </a>
             </div>
         </div>
@@ -334,7 +348,7 @@
     <section id="contact" style="text-align:center; padding-bottom: 80px;">
         <h2 class="section-title">Danışmanlık Başvurusu</h2>
         <p style="max-width:600px; margin:0 auto 40px auto; font-size:1.1rem;">
-            Yüksek hassasiyetli uygulama için sınırlı sayıda danışanla çalışıyorum.
+            Yüksek hassasiyet gerektiren stratejik konularda sınırlı sayıda danışanla çalışıyorum.
         </p>
         
         <div class="contact-container">
@@ -356,7 +370,7 @@
                     <select name="type" class="form-control">
                         <option value="Market Entry">UK Pazarına Giriş (Tripod Modeli)</option>
                         <option value="Crisis Resolution">Stratejik Kriz Yönetimi</option>
-                        <option value="Innovation/R&D">İnovasyon & Ar-Ge Fonlama</option>
+                        <option value="Innovation/IP">İnovasyon / Marka-Patent / Proje Fonu</option>
                         <option value="Other">Diğer Stratejik Danışmanlık</option>
                     </select>
                 </div>

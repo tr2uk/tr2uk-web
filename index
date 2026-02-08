@@ -169,7 +169,7 @@
                 </div>
             </div>
             <div class="about-img">
-                <img src="https://via.placeholder.com/500x400/eee/333?text=Assoc.+Prof.+Dr.+Cetin+Karakaya" alt="Dr Cetin Karakaya" style="width:100%; border-radius:5px;">
+                <img src="https://via.placeholder.com/500x400/eee/333?text=Assoc.+Prof.+Dr.+Cetin+Karakaya" alt="profil" style="width:100%; border-radius:5px;">
             </div>
         </div>
     </section>
@@ -195,7 +195,7 @@
     <section id="book">
         <div class="book-section">
             <div>
-                <img src="https://via.placeholder.com/300x450/0a192f/fff?text=The+Baird+Effect" alt="The Baird Effect Book Cover" class="book-cover">
+                <img src="https://via.placeholder.com/300x450/0a192f/fff?text=The+Baird+Effect" alt="kitap" class="book-cover">
             </div>
             <div>
                 <h2 class="section-title">The Baird Effect</h2>

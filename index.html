@@ -21,19 +21,12 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
         
-        /* MOBİL KAYMA (OVERFLOW) FİX */
-        html, body {
-            overflow-x: hidden;
-            width: 100%;
-            position: relative;
-        }
-
+        html, body { overflow-x: hidden; width: 100%; position: relative; }
         body { background-color: var(--white); color: #333; line-height: 1.6; }
 
-        /* HEADER */
+        /* HEADER & NAVIGATION */
         header {
-            background-color: var(--primary);
-            color: var(--white);
+            background-color: var(--primary); /* Logo her zaman görünsün diye koyu zemin */
             padding: 0 5%;
             display: flex;
             justify-content: space-between;
@@ -46,14 +39,22 @@
             height: 70px;
         }
 
-        .logo-text { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; color: var(--white); text-decoration: none; }
-        .logo-text span { color: var(--accent); }
+        /* HEADER LOGO IMAGE (TR2UK Original) */
+        .nav-logo-img {
+            height: 50px; /* Header içine tam oturur */
+            width: auto;
+            margin-top: 5px;
+        }
 
+        /* DESKTOP NAV */
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
         nav a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; font-weight: 500; }
         nav a:hover { color: var(--accent); }
 
-        /* HERO */
+        /* MOBILE MENU ICON (HAMBURGER) */
+        .menu-toggle { display: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+
+        /* HERO SECTION */
         .hero {
             height: 100vh;
             display: flex;
@@ -64,22 +65,22 @@
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.7)), url('banner.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: fixed; /* Masaüstünde sabit */
             color: var(--white);
         }
 
         .hero h3 { 
             color: var(--accent); 
             font-family: 'Courier New', monospace; 
-            margin-bottom: 25px; 
-            font-size: 1.8rem; 
+            margin-bottom: 20px; 
+            font-size: 1.5rem; 
             font-weight: 700; 
             letter-spacing: 2px;
             text-transform: uppercase;
         }
         
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px; max-width: 900px; font-weight: 800; }
-        .hero p { color: var(--text-light); font-size: 1.3rem; max-width: 700px; margin-bottom: 40px; }
+        .hero h1 { font-size: 3.2rem; line-height: 1.1; margin-bottom: 20px; max-width: 900px; font-weight: 800; }
+        .hero p { color: var(--text-light); font-size: 1.2rem; max-width: 700px; margin-bottom: 35px; }
         
         .btn {
             padding: 15px 35px;
@@ -95,145 +96,112 @@
         }
         .btn:hover { background-color: rgba(100, 255, 218, 0.1); transform: translateY(-2px); }
 
-        /* SECTIONS GENERAL */
-        section { padding: 100px 10%; width: 100%; }
+        /* SECTIONS GENERAL (Boşluklar azaltıldı) */
+        section { padding: 80px 10%; width: 100%; }
         
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
-            color: var(--primary);
-        }
-        .section-title::after {
-            content: ""; display: block; width: 60%; height: 4px; background: var(--primary); margin-top: 10px;
-        }
+        .section-title { font-size: 2rem; margin-bottom: 40px; position: relative; display: inline-block; color: var(--primary); }
+        .section-title::after { content: ""; display: block; width: 60%; height: 4px; background: var(--primary); margin-top: 10px; }
 
-        /* STATS COUNTER SECTION (YENİ) */
-        #stats {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 60px 10%;
-            text-align: center;
-        }
-        .stats-grid {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        .stat-item {
-            flex: 1;
-            min-width: 200px;
-        }
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 10px;
-        }
-        .stat-label {
-            font-size: 1rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* STATS COUNTER */
+        #stats { background-color: var(--primary); color: var(--white); padding: 50px 10%; text-align: center; }
+        .stats-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .stat-item { flex: 1; min-width: 200px; }
+        .stat-number { font-size: 2.8rem; font-weight: 800; color: var(--accent); display: block; margin-bottom: 5px; }
+        .stat-label { font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; line-height: 1.4; }
 
         /* ABOUT */
-        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
-        .about-text p { margin-bottom: 20px; color: #444; font-size: 1.05rem; }
+        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
+        .about-text p { margin-bottom: 15px; color: #444; font-size: 1.05rem; }
         
         /* SERVICES */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .service-card {
-            background: var(--white);
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-            border-top: 4px solid var(--text-dim);
-            border-radius: 5px;
+            background: var(--white); padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s; border-top: 4px solid var(--text-dim); border-radius: 5px;
         }
         .service-card:hover { transform: translateY(-10px); border-top: 4px solid var(--accent); }
-        .service-card h3 { margin-bottom: 20px; color: var(--primary); font-size: 1.4rem; }
+        .service-card h3 { margin-bottom: 15px; color: var(--primary); font-size: 1.3rem; }
 
-        /* BOOK SECTION */
-        .book-section { background-color: #f0f2f5; display: flex; align-items: center; gap: 60px; padding: 80px 10%; border-radius: 10px; }
-        .book-cover { width: 320px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: rotate(-3deg); border: 8px solid #fff; transition: transform 0.3s;}
+        /* BOOK */
+        .book-section { background-color: #f0f2f5; display: flex; align-items: center; gap: 50px; padding: 60px 8%; border-radius: 10px; }
+        .book-cover { width: 280px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: rotate(-3deg); border: 8px solid #fff; transition: transform 0.3s;}
         .book-cover:hover { transform: rotate(0deg) scale(1.02); }
 
-        /* RESOURCES CARDS */
+        /* RESOURCES */
         .resource-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: left;
-            flex: 1;
-            min-width: 280px; /* Mobilde taşmasın diye küçültüldü */
-            border-top: 5px solid var(--primary);
+            background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; flex: 1; min-width: 280px; border-top: 5px solid var(--primary);
         }
         
         /* BUTTONS */
-        .btn-amazon { background-color: var(--amazon); color: #fff; border: none; padding: 10px 20px; width: 100%; text-align: center; margin-bottom: 10px; border-radius: 4px; font-weight: bold; text-decoration: none; display: block;}
-        .btn-google { background-color: var(--google); color: #fff; border: none; padding: 10px 20px; width: 100%; text-align: center; margin-bottom: 10px; border-radius: 4px; font-weight: bold; text-decoration: none; display: block;}
-        .btn-download { background-color: #27ae60; color: #fff; border: none; padding: 10px 20px; width: 100%; text-align: center; margin-bottom: 10px; border-radius: 4px; font-weight: bold; text-decoration: none; display: block;}
+        .btn-amazon, .btn-google, .btn-download { color: #fff; border: none; padding: 10px; width: 100%; text-align: center; margin-bottom: 8px; border-radius: 4px; font-weight: bold; text-decoration: none; display: block; font-size: 0.9rem;}
+        .btn-amazon { background-color: var(--amazon); }
+        .btn-google { background-color: var(--google); }
+        .btn-download { background-color: #27ae60; }
         .btn-amazon:hover, .btn-google:hover, .btn-download:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        /* VIP FORM */
-        .contact-container {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: left;
-            background: #fff;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            border-top: 5px solid var(--primary);
-        }
-        .form-group { margin-bottom: 20px; }
-        .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
-        .form-control { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; background-color: #f9f9f9; }
-        .form-control:focus { border-color: var(--primary); outline: none; background-color: #fff; }
+        /* CONTACT */
+        .contact-container { max-width: 600px; margin: 0 auto; text-align: left; background: #fff; padding: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 8px; border-top: 5px solid var(--primary); }
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--primary); font-size: 0.9rem; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem; background-color: #f9f9f9; }
 
         /* FOOTER */
-        footer { background: var(--primary); color: var(--text-dim); text-align: center; padding: 50px 10%; font-size: 0.95rem; }
-        .footer-logo-img { height: 60px; width: auto; margin-bottom: 20px; opacity: 0.9; }
-        .social-links { margin-top: 20px; }
-        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s; text-decoration: none !important; }
-        .social-links a:hover { color: var(--accent); }
+        footer { background: var(--primary); color: var(--text-dim); text-align: center; padding: 40px 10%; font-size: 0.9rem; }
+        .footer-logo-img { height: 50px; width: auto; margin-bottom: 15px; opacity: 0.9; }
+        .social-links { margin-top: 15px; }
+        .social-links a { color: var(--white); font-size: 1.4rem; margin: 0 15px; transition: color 0.3s; text-decoration: none !important; }
         
-        /* RESPONSIVE CSS (MOBİL DÜZENLEMELERİ) */
+        /* --- RESPONSIVE CSS (MOBİL & TABLET) --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            /* Mobil Banner Fix */
+            .hero { background-attachment: scroll; background-position: center top; } 
+            .hero h1 { font-size: 2.1rem; }
             .hero h3 { font-size: 1.1rem; }
-            .hero p { font-size: 1.1rem; }
             
-            section { padding: 60px 5%; } /* Kenar boşlukları azaltıldı */
+            section { padding: 50px 5%; } /* Mobilde boşluklar daha da azaldı */
             
+            /* Mobil Menü Sistemi */
+            .menu-toggle { display: block; }
+            nav {
+                display: none; /* Varsayılan gizli */
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 20px;
+                text-align: center;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+            nav.active { display: block; } /* JS ile açılacak */
+            nav ul { flex-direction: column; gap: 15px; }
+
             .about-grid, .book-section { grid-template-columns: 1fr; display: block; }
-            .book-cover { margin: 0 auto 40px auto; display: block; width: 220px; }
-            
-            nav { display: none; } 
-            header { height: 60px; padding: 0 5%; }
-            
-            .contact-container { padding: 20px; }
-            .stats-grid { flex-direction: column; gap: 40px; }
+            .book-cover { margin: 0 auto 30px auto; display: block; width: 200px; }
+            .stats-grid { flex-direction: column; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo-text">TR2UK<span>.</span></a>
-        <nav>
+        <a href="index.html">
+            <img src="logo.png" alt="TR2UK Logo" class="nav-logo-img">
+        </a>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav id="navbar">
             <ul>
-                <li><a href="#about">Founder</a></li>
-                <li><a href="#services">Solutions</a></li>
-                <li><a href="#book">The Book</a></li>
-                <li><a href="#resources">Resources</a></li>
+                <li><a href="#about" onclick="toggleMenu()">Founder</a></li>
+                <li><a href="#services" onclick="toggleMenu()">Solutions</a></li>
+                <li><a href="#book" onclick="toggleMenu()">The Book</a></li>
+                <li><a href="#resources" onclick="toggleMenu()">Resources</a></li>
                 <li><a href="https://www.linkedin.com/in/drckarakaya/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                <li><a href="#contact" style="color:var(--accent); border: 1px solid var(--accent); padding: 8px 15px; border-radius: 4px;">Apply</a></li>
+                <li><a href="tr.html" style="font-weight:bold; color:var(--accent);">TR</a> <span style="color:rgba(255,255,255,0.3)">|</span> <span style="color:var(--white); opacity:0.5; cursor:default;">EN</span></li>
+                <li><a href="#contact" style="color:var(--accent); border: 1px solid var(--accent); padding: 8px 15px; border-radius: 4px;" onclick="toggleMenu()">Apply</a></li>
             </ul>
         </nav>
     </header>
@@ -248,20 +216,20 @@
     <section id="stats">
         <div class="stats-grid">
             <div class="stat-item">
-                <span class="stat-number" data-target="12">0</span>
-                <span class="stat-label">£M+ R&D Funding Secured</span>
+                <span class="stat-number" data-target="12" data-speed="250">0</span>
+                <span class="stat-label">£12M+ PROJECT FUNDING SECURED</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number" data-target="500">0</span>
-                <span class="stat-label">IP & Patent Strategies</span>
+                <span class="stat-number" data-target="150" data-speed="40">0</span>
+                <span class="stat-label">150+ IP & PATENT STRATEGIES</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number" data-target="110">0</span>
-                <span class="stat-label">Industrial Collaborations</span>
+                <span class="stat-number" data-target="110" data-speed="60">0</span>
+                <span class="stat-label">110+ INDUSTRIAL COLLABORATIONS</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number" data-target="75">0</span>
-                <span class="stat-label">UK Market Entries</span>
+                <span class="stat-number" data-target="75" data-speed="80">0</span>
+                <span class="stat-label">75+ UK MARKET ENTRIES</span>
             </div>
         </div>
     </section>
@@ -270,7 +238,7 @@
         <h2 class="section-title">The Engineering Mindset</h2>
         <div class="about-grid">
             <div class="about-text">
-                <p style="font-size:1.4rem; color:var(--primary); font-weight:600;">"I view business problems through the lens of an engineer: Analytical, calculable, and solvable."</p>
+                <p style="font-size:1.3rem; color:var(--primary); font-weight:600;">"I view business problems through the lens of an engineer: Analytical, calculable, and solvable."</p>
                 <p>As an Associate Professor and Principal Consultant based in the UK, I do not offer temporary "fixes". I design and build sustainable commercial systems.</p>
                 <p>My mission is to position you as a permanent "Game Maker" in the UK market by establishing a solid presence backed by data, law, and strategy.</p>
                 <p style="margin-top:20px; font-weight:bold; color:#555;">Years of Engineering Logic: 25+ (TR+UK)</p>
@@ -320,11 +288,11 @@
 
     <section id="resources" style="background-color: #eaeaea; padding: 80px 10%; text-align: center;">
         <h2 class="section-title">Publications & Resources</h2>
-        <p style="margin-bottom: 50px; color: #555; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <p style="margin-bottom: 40px; color: #555; max-width: 700px; margin-left: auto; margin-right: auto;">
             Access my published works and community guides below.
         </p>
 
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
             
             <div class="resource-card">
                 <h3 style="color: var(--primary); margin-bottom: 10px;">🇬🇧 UK Business Guide (2025)</h3>
@@ -411,24 +379,31 @@
     </footer>
 
     <script>
+        // 1. MOBILE MENU TOGGLE
+        function toggleMenu() {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('active');
+        }
+
+        // 2. SMART COUNTER ANIMATION
         const counters = document.querySelectorAll('.stat-number');
         
-        // Animasyon fonksiyonu
-        const speed = 200; // Hız ayarı (daha yüksek = daha yavaş)
-
         const runAnimation = () => {
             counters.forEach(counter => {
                 const updateCount = () => {
                     const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText.replace('+', ''); // + işaretini geçici kaldır
+                    const speed = +counter.getAttribute('data-speed'); // Her sayının hızı özel
+                    const count = +counter.innerText.replace('+', '').replace('£', '').replace('M', ''); // Temizle
                     
                     const inc = target / speed;
 
                     if (count < target) {
+                        // Sayıyı artır (Math.ceil ile yuvarla)
                         counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 20);
+                        setTimeout(updateCount, 20); // 20ms'de bir güncelle
                     } else {
-                        counter.innerText = target + "+"; // Bittiğinde + ekle
+                        // Bittiğinde orijinal formatı geri koy (Sadece rakam değilse)
+                        counter.innerText = target + "+";
                     }
                 };
                 updateCount();

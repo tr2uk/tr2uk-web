@@ -15,6 +15,8 @@
             --text-dim: #8892b0;
             --white: #ffffff;
             --bg: #f4f4f4;
+            --amazon: #FF9900;
+            --google: #4285F4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -34,19 +36,12 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            height: 80px;
+            height: 70px;
         }
 
-        /* LOGO AYARLARI */
-        .nav-logo {
-            height: 55px; 
-            width: auto;
-            margin-top: 5px;
-            /* Logo arka planı */
-            background: rgba(255,255,255,0.1); 
-            border-radius: 4px;
-            padding: 2px;
-        }
+        /* TEXT LOGO (ESKİ HALİ) */
+        .logo-text { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; color: var(--white); text-decoration: none; }
+        .logo-text span { color: var(--accent); }
 
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
         nav a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; font-weight: 500; }
@@ -60,7 +55,6 @@
             justify-content: center;
             align-items: flex-start;
             padding: 0 10%;
-            /* Banner görseli */
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.7)), url('banner.jpg');
             background-size: cover;
             background-position: center;
@@ -139,7 +133,25 @@
         .book-cover { width: 320px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: rotate(-3deg); border: 8px solid #fff; transition: transform 0.3s;}
         .book-cover:hover { transform: rotate(0deg) scale(1.02); }
 
-        /* VIP FORM STYLES */
+        /* RESOURCES CARDS (NEW STYLE) */
+        .resource-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: left;
+            flex: 1;
+            min-width: 300px;
+            border-top: 5px solid var(--primary);
+        }
+        
+        /* BRAND BUTTONS */
+        .btn-amazon { background-color: var(--amazon); color: #fff; border: none; padding: 10px 20px; width: 100%; text-align: center; margin-bottom: 10px; border-radius: 4px; font-weight: bold; }
+        .btn-google { background-color: var(--google); color: #fff; border: none; padding: 10px 20px; width: 100%; text-align: center; margin-bottom: 10px; border-radius: 4px; font-weight: bold;}
+        .btn-download { background-color: #27ae60; color: #fff; border: none; padding: 10px 20px; width: 100%; text-align: center; margin-bottom: 10px; border-radius: 4px; font-weight: bold;}
+        .btn-amazon:hover, .btn-google:hover, .btn-download:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* VIP FORM */
         .contact-container {
             max-width: 700px;
             margin: 0 auto;
@@ -152,15 +164,14 @@
         }
         .form-group { margin-bottom: 20px; }
         .form-label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
-        .form-control {
-            width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; background-color: #f9f9f9;
-        }
+        .form-control { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; background-color: #f9f9f9; }
         .form-control:focus { border-color: var(--primary); outline: none; background-color: #fff; }
 
         /* FOOTER */
         footer { background: var(--primary); color: var(--text-dim); text-align: center; padding: 50px 10%; font-size: 0.95rem; }
+        .footer-logo-img { height: 60px; width: auto; margin-bottom: 20px; opacity: 0.9; }
         .social-links { margin-top: 20px; }
-        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s; }
+        .social-links a { color: var(--white); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s; text-decoration: none !important; } /* Çizgiyi kaldırdık */
         .social-links a:hover { color: var(--accent); }
         
         /* RESPONSIVE */
@@ -170,7 +181,6 @@
             .about-grid, .book-section { grid-template-columns: 1fr; display: block; }
             .book-cover { margin: 0 auto 40px auto; display: block; width: 250px; }
             nav { display: none; } 
-            .nav-logo { height: 45px; }
             header { height: 60px; padding: 0.5rem 5%; }
             .contact-container { padding: 20px; }
         }
@@ -179,7 +189,7 @@
 <body>
 
     <header>
-        <a href="#"><img src="logo.png" alt="TR2UK Strategic Consulting" class="nav-logo"></a>
+        <a href="#" class="logo-text">TR2UK<span>.</span></a>
         <nav>
             <ul>
                 <li><a href="#about">Founder</a></li>
@@ -258,48 +268,48 @@
                     "What if your biggest failed ideas could become tomorrow’s winning start-ups?"<br><br>
                     In this groundbreaking book, Dr. Cetin Karakaya explores how entrepreneurs can reinvent their ventures using today's AI-driven tools. Based on real projects built between 2004-2014 and reimagined today.
                 </p>
-                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn" style="background: #FF9900; color: #fff; border: none;">
+                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-amazon" style="display:inline-block; width:auto;">
                     <i class="fab fa-amazon"></i> Order on Amazon
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="resources" style="background-color: #fff; padding: 80px 10%; text-align: center;">
+    <section id="resources" style="background-color: #eaeaea; padding: 80px 10%; text-align: center;">
         <h2 class="section-title">Publications & Resources</h2>
-        <p style="margin-bottom: 50px; color: #666; max-width: 700px; margin-left: auto; margin-right: auto;">
-            Sharing knowledge is part of my mission. Access my published works and community guides below.
+        <p style="margin-bottom: 50px; color: #555; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Access my published works and community guides below.
         </p>
 
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; text-align: left;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
             
-            <div style="flex: 1; min-width: 300px; background: #f9f9f9; padding: 30px; border-radius: 8px; border-left: 5px solid var(--accent);">
+            <div class="resource-card">
                 <h3 style="color: var(--primary); margin-bottom: 10px;">🇬🇧 UK Business Guide (2025)</h3>
-                <span style="background: var(--primary); color: #fff; padding: 2px 8px; font-size: 0.8rem; border-radius: 4px;">Free Community Gift</span>
-                <p style="font-size: 0.95rem; margin: 15px 0; color: #555;">
-                    The essential handbook for Turkish entrepreneurs in the UK. Over 1 year of free distribution to the network.
+                <span style="background: #27ae60; color: #fff; padding: 4px 10px; font-size: 0.8rem; border-radius: 4px; font-weight:bold;">Free Gift</span>
+                <p style="font-size: 0.95rem; margin: 15px 0; color: #333;">
+                    The essential handbook for Turkish entrepreneurs in the UK. Free for the community.
                 </p>
-                <a href="guide.pdf" target="_blank" class="btn" style="padding: 10px 20px; font-size: 0.9rem;">
+                <a href="guide.pdf" target="_blank" class="btn-download">
                     <i class="fas fa-file-pdf"></i> Download PDF
                 </a>
-                <p style="margin-top: 15px; font-size: 0.85rem; color: #888;">
-                    <em>*2026 Edition is currently in production. Stay tuned!</em>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #777;">
+                    <em>*2026 Edition coming soon.</em>
                 </p>
             </div>
 
-            <div style="flex: 1; min-width: 300px; background: #f9f9f9; padding: 30px; border-radius: 8px; border-left: 5px solid #4285F4;">
-                <h3 style="color: var(--primary); margin-bottom: 10px;">🎧 Audiobooks on Google Play</h3>
-                <p style="font-size: 0.95rem; margin: 15px 0; color: #555;">
-                    Listen to strategic insights on the go. Available now on Google Play Books & Audio.
+            <div class="resource-card">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">📚 Published Books & Audio</h3>
+                <p style="font-size: 0.95rem; margin: 15px 0; color: #333;">
+                    Strategic insights available on global platforms (e-Book & Audiobook).
                 </p>
-                <div style="display: flex; gap: 10px; flex-direction: column;">
-                    <a href="https://play.google.com/store/audiobooks/details?id=AQAAAEDq3WudkM" target="_blank" style="text-decoration: none; color: #4285F4; font-weight: bold;">
-                        <i class="fas fa-headphones"></i> Listen to Audiobook &rarr;
-                    </a>
-                    <a href="https://play.google.com/store/books/details?id=q1yfEQAAQBAJ" target="_blank" style="text-decoration: none; color: #4285F4; font-weight: bold;">
-                        <i class="fas fa-book"></i> View on Google Books &rarr;
-                    </a>
-                </div>
+                
+                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-amazon">
+                    <i class="fab fa-amazon"></i> Buy on Amazon
+                </a>
+                
+                <a href="https://play.google.com/store/books/details?id=q1yfEQAAQBAJ" target="_blank" class="btn-google">
+                    <i class="fab fa-google-play"></i> Get on Google Play
+                </a>
             </div>
 
         </div>
@@ -308,27 +318,23 @@
     <section id="contact" style="text-align:center; padding-bottom: 80px;">
         <h2 class="section-title">Apply for Strategic Consultation</h2>
         <p style="max-width:600px; margin:0 auto 40px auto; font-size:1.1rem;">
-            I work with a limited number of clients to ensure high-precision execution. Please provide brief details about your strategic challenge.
+            I work with a limited number of clients to ensure high-precision execution.
         </p>
         
         <div class="contact-container">
             <form action="https://formspree.io/f/mjgevzna" method="POST">
-                
                 <div class="form-group">
                     <label class="form-label">Full Name</label>
                     <input type="text" name="name" class="form-control" required placeholder="Name Surname">
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Company / Role</label>
                     <input type="text" name="company" class="form-control" required placeholder="Company Name & Position">
                 </div>
-                
                 <div class="form-group">
                     <label class="form-label">Email Address</label>
                     <input type="email" name="email" class="form-control" required placeholder="official@company.com">
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Consultation Type</label>
                     <select name="type" class="form-control">
@@ -338,12 +344,10 @@
                         <option value="Other">Other Strategic Advisory</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Strategic Challenge (Brief)</label>
                     <textarea name="message" class="form-control" rows="4" placeholder="Briefly describe the deadlock or goal..."></textarea>
                 </div>
-
                 <button type="submit" class="btn" style="background:var(--primary); color:#fff; border:none; width:100%; font-size:1.1rem;">
                     Submit Application
                 </button>
@@ -352,6 +356,8 @@
     </section>
 
     <footer>
+        <img src="logo.png" alt="TR2UK Logo" class="footer-logo-img">
+        
         <p>&copy; 2026 TR2UK Strategic Consulting. All Rights Reserved.</p>
         <p style="margin-top:10px;">Assoc. Prof. Dr. Cetin Karakaya | FIMechE Candidate</p>
         

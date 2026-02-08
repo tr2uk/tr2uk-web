@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TR2UK | Strategic Consulting - Engineering Logic</title>
+    <meta name="description" content="Assoc. Prof. Dr. Cetin Karakaya bridges the strategic gap between Turkey and the UK. Stop being a Guest. Become a Game Maker.">
+    <style>
+        /* ENGINEERING LOGIC DESIGN SYSTEM */
+        :root {
+            --primary: #0a192f; /* Deep Navy - Otorite */
+            --accent: #64ffda; /* Tech Cyan - İnovasyon */
+            --text-light: #ccd6f6;
+            --text-dim: #8892b0;
+            --white: #ffffff;
+            --bg: #f4f4f4; /* Clean Engineering Paper */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        
+        body { background-color: var(--white); color: #333; line-height: 1.6; }
+
+        /* HEADER */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+        .logo span { color: var(--accent); }
+
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { color: var(--text-light); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--white);
+        }
+
+        .hero h3 { color: var(--accent); font-family: 'Courier New', monospace; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; max-width: 800px; }
+        .hero p { color: var(--text-dim); font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; }
+        
+        .btn {
+            padding: 15px 30px;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .btn:hover { background-color: rgba(100, 255, 218, 0.1); }
+
+        /* SECTIONS */
+        section { padding: 80px 10%; }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+            margin-top: 10px;
+        }
+
+        /* ABOUT (Grid Layout) */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-text p { margin-bottom: 20px; color: #555; }
+        .about-stats { display: flex; gap: 20px; margin-top: 20px; }
+        .stat-box { background: #eee; padding: 20px; text-align: center; width: 100%; border-left: 4px solid var(--primary); }
+        .stat-number { display: block; font-size: 2rem; font-weight: 700; color: var(--primary); }
+
+        /* SERVICES (Tripod Model) */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 3px solid transparent;
+        }
+        .service-card:hover { transform: translateY(-5px); border-top: 3px solid var(--primary); }
+        .service-card h3 { margin-bottom: 15px; color: var(--primary); }
+
+        /* THE BOOK */
+        .book-section { background-color: #f9f9f9; display: flex; align-items: center; gap: 50px; }
+        .book-cover { width: 300px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: rotate(-3deg); border: 5px solid #fff; }
+        
+        /* FOOTER */
+        footer { background: var(--primary); color: var(--text-dim); text-align: center; padding: 40px; font-size: 0.9rem; }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-grid, .book-section { grid-template-columns: 1fr; display: block; }
+            .book-cover { margin: 0 auto 30px auto; display: block; transform: none; }
+            nav { display: none; } /* Mobile menu can be added later */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">TR2UK<span>.</span></div>
+        <nav>
+            <ul>
+                <li><a href="#about">Founder</a></li>
+                <li><a href="#services">Strategic Solutions</a></li>
+                <li><a href="#book">The Baird Effect</a></li>
+                <li><a href="#contact" style="color:var(--accent)">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h3>ENGINEERING LOGIC FOR BUSINESS</h3>
+        <h1>Stop being a Guest.<br>Become a Game Maker.</h1>
+        <p>Assoc. Prof. Dr. Cetin Karakaya bridges the strategic gap between Turkey and the UK with calculated precision, not just advice.</p>
+        <a href="#contact" class="btn">Schedule a Strategic Diagnosis</a>
+    </div>
+
+    <section id="about">
+        <h2 class="section-title">The Engineering Mindset</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p><strong>"I view business problems through the lens of an engineer: Analytical, calculable, and solvable."</strong></p>
+                <p>As an Associate Professor and Principal Consultant based in the UK, I do not offer temporary "fixes". I design and build sustainable commercial systems.</p>
+                <p>My mission is to position you as a permanent "Game Maker" in the UK market by establishing a solid presence backed by data, law, and strategy.</p>
+                
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">25+</span>
+                        Years Exp.
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">3</span>
+                        Patents
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">£Mn+</span>
+                        Grants Managed
+                    </div>
+                </div>
+            </div>
+            <div class="about-img">
+                <img src="https://via.placeholder.com/500x400/eee/333?text=Assoc.+Prof.+Dr.+Cetin+Karakaya" alt="Dr Cetin Karakaya" style="width:100%; border-radius:5px;">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background:#f4f4f4;">
+        <h2 class="section-title">Strategic Solutions</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>01. UK Market Architecture</h3>
+                <p>Building your UK operations on the robust "Tripod Model" of Law, Finance, and Logistics. We turn market entry into a structural engineering project.</p>
+            </div>
+            <div class="service-card">
+                <h3>02. Strategic Deadlock Resolution</h3>
+                <p>Unlocking complex bureaucratic or commercial deadlocks. Replacing emotional decisions with calculated, verifiable engineering metrics.</p>
+            </div>
+            <div class="service-card">
+                <h3>03. Innovation & Funding</h3>
+                <p>Leveraging my "Grant Winner" experience (TÜBİTAK/Innovate UK) to design R&D roadmaps that secure funding and drive technological growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="book">
+        <div class="book-section">
+            <div>
+                <img src="https://via.placeholder.com/300x450/0a192f/fff?text=The+Baird+Effect" alt="The Baird Effect Book Cover" class="book-cover">
+            </div>
+            <div>
+                <h2 class="section-title">The Baird Effect</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 20px;"><em>"What if your biggest failed ideas could become tomorrow’s winning start-ups?"</em></p>
+                <p>In this groundbreaking book, Dr. Cetin Karakaya explores how entrepreneurs can reinvent their ventures using today's AI-driven tools. Based on real projects built between 2004-2014 and reimagined today.</p>
+                <br>
+                <a href="#" class="btn" style="border-color:#333; color:#333;">Order on Amazon</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align:center;">
+        <h2 class="section-title">Start Your Transformation</h2>
+        <p style="max-width:600px; margin:0 auto 40px auto;">I work with a limited number of clients to ensure high-precision execution. Tell me about your strategic challenge.</p>
+        <a href="mailto:ck@tr2uk.com" class="btn" style="background:var(--primary); color:#fff; border:none;">Email: ck@tr2uk.com</a>
+        <br><br>
+        <p><small>Based in Hastings, East Sussex, United Kingdom</small></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 TR2UK Strategic Consulting. All Rights Reserved.</p>
+        <p>Assoc. Prof. Dr. Cetin Karakaya | FIMechE Candidate</p>
+    </footer>
+
+</body>
+</html>

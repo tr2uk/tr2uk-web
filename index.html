@@ -15,8 +15,6 @@
             --text-dim: #8892b0;
             --white: #ffffff;
             --bg: #f4f4f4;
-            --amazon: #FF9900;
-            --google: #4285F4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -95,25 +93,22 @@
         .section-title { font-size: 2rem; margin-bottom: 40px; position: relative; display: inline-block; color: var(--primary); }
         .section-title::after { content: ""; display: block; width: 60%; height: 4px; background: var(--primary); margin-top: 10px; }
 
-        /* STATS COUNTER - REVİZE EDİLDİ */
+        /* STATS COUNTER */
         #stats { background-color: var(--primary); color: var(--white); padding: 50px 10%; text-align: center; }
         .stats-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .stat-item { flex: 1; min-width: 200px; }
         
-        /* Sayı grubu konteynerı */
         .stat-number-container {
             font-size: 2.8rem;
             font-weight: 800;
             color: var(--accent);
             display: flex;
             justify-content: center;
-            align-items: baseline; /* Sayı ve sembolleri hizalar */
+            align-items: baseline;
             margin-bottom: 5px;
         }
         
-        /* Semboller (£, M, +) için stil */
         .stat-symbol { font-size: 2.8rem; font-weight: 800; color: var(--accent); }
-        
         .stat-label { font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; line-height: 1.4; }
 
         /* ABOUT */
@@ -139,12 +134,28 @@
             background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; flex: 1; min-width: 280px; border-top: 5px solid var(--primary);
         }
         
-        /* BUTTONS */
-        .btn-amazon, .btn-google, .btn-download { color: #fff; border: none; padding: 10px; width: 100%; text-align: center; margin-bottom: 8px; border-radius: 4px; font-weight: bold; text-decoration: none; display: block; font-size: 0.9rem;}
-        .btn-amazon { background-color: var(--amazon); }
-        .btn-google { background-color: var(--google); }
-        .btn-download { background-color: #27ae60; }
-        .btn-amazon:hover, .btn-google:hover, .btn-download:hover { opacity: 0.9; transform: translateY(-2px); }
+        /* UNIFIED BUTTONS (YENİ TASARIM) */
+        .btn-resource { 
+            background-color: var(--primary); 
+            color: #fff; 
+            border: none; 
+            padding: 12px; 
+            width: 100%; 
+            text-align: center; 
+            margin-bottom: 10px; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            text-decoration: none; 
+            display: block; 
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        .btn-resource:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        
+        /* ICONS COLORS */
+        .icon-amazon { color: #FF9900; margin-right: 8px; font-size: 1.1rem; }
+        .icon-google { color: #4285F4; margin-right: 8px; font-size: 1.1rem; }
+        .icon-pdf { color: #27ae60; margin-right: 8px; font-size: 1.1rem; }
 
         /* CONTACT */
         .contact-container { max-width: 600px; margin: 0 auto; text-align: left; background: #fff; padding: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 8px; border-top: 5px solid var(--primary); }
@@ -208,7 +219,6 @@
 
     <section id="stats">
         <div class="stats-grid">
-            
             <div class="stat-item">
                 <div class="stat-number-container">
                     <span class="stat-symbol">£</span>
@@ -217,7 +227,6 @@
                 </div>
                 <span class="stat-label">PROJECT FUNDING SECURED</span>
             </div>
-
             <div class="stat-item">
                 <div class="stat-number-container">
                     <span class="stat-number" data-target="150" data-speed="40">0</span>
@@ -225,7 +234,6 @@
                 </div>
                 <span class="stat-label">IP & PATENT STRATEGIES</span>
             </div>
-
             <div class="stat-item">
                 <div class="stat-number-container">
                     <span class="stat-number" data-target="110" data-speed="60">0</span>
@@ -233,7 +241,6 @@
                 </div>
                 <span class="stat-label">INDUSTRIAL COLLABORATIONS</span>
             </div>
-
             <div class="stat-item">
                 <div class="stat-number-container">
                     <span class="stat-number" data-target="75" data-speed="80">0</span>
@@ -241,7 +248,6 @@
                 </div>
                 <span class="stat-label">UK MARKET ENTRIES</span>
             </div>
-
         </div>
     </section>
 
@@ -290,8 +296,8 @@
                     "What if your biggest failed ideas could become tomorrow’s winning start-ups?"<br><br>
                     In this groundbreaking book, Dr. Cetin Karakaya explores how entrepreneurs can reinvent their ventures using today's AI-driven tools. Based on real projects built between 2004-2014 and reimagined today.
                 </p>
-                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-amazon" style="display:inline-block; width:auto;">
-                    <i class="fab fa-amazon"></i> Order on Amazon
+                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-resource" style="display:inline-block; width:auto;">
+                    <i class="fab fa-amazon icon-amazon"></i> Order on Amazon
                 </a>
             </div>
         </div>
@@ -311,8 +317,8 @@
                 <p style="font-size: 0.95rem; margin: 15px 0; color: #333;">
                     The essential handbook for Turkish entrepreneurs in the UK. Free for the community.
                 </p>
-                <a href="guide.pdf" target="_blank" class="btn-download">
-                    <i class="fas fa-file-pdf"></i> Download PDF
+                <a href="guide.pdf" target="_blank" class="btn-resource">
+                    <i class="fas fa-file-pdf icon-pdf"></i> Download PDF
                 </a>
                 <p style="margin-top: 10px; font-size: 0.8rem; color: #777;">
                     <em>*2026 Edition coming soon.</em>
@@ -324,11 +330,11 @@
                 <p style="font-size: 0.95rem; margin: 15px 0; color: #333;">
                     Strategic insights available on global platforms (e-Book & Audiobook).
                 </p>
-                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-amazon">
-                    <i class="fab fa-amazon"></i> Buy on Amazon
+                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-resource">
+                    <i class="fab fa-amazon icon-amazon"></i> Buy on Amazon
                 </a>
-                <a href="https://play.google.com/store/books/details?id=q1yfEQAAQBAJ" target="_blank" class="btn-google">
-                    <i class="fab fa-google-play"></i> Get on Google Play
+                <a href="https://play.google.com/store/books/details?id=q1yfEQAAQBAJ" target="_blank" class="btn-resource">
+                    <i class="fab fa-google-play icon-google"></i> Get on Google Play
                 </a>
             </div>
         </div>
@@ -337,7 +343,7 @@
     <section id="contact" style="text-align:center; padding-bottom: 80px;">
         <h2 class="section-title">Apply for Strategic Consultation</h2>
         <p style="max-width:600px; margin:0 auto 40px auto; font-size:1.1rem;">
-            I work with a limited number of clients to ensure high-precision execution.
+            I work with a limited number of clients on strategic matters requiring high precision.
         </p>
         
         <div class="contact-container">
@@ -359,7 +365,7 @@
                     <select name="type" class="form-control">
                         <option value="Market Entry">UK Market Entry (Tripod Model)</option>
                         <option value="Crisis Resolution">Strategic Crisis Resolution</option>
-                        <option value="Innovation/R&D">Innovation & R&D Funding</option>
+                        <option value="Innovation/IP">Innovation / IP / Project Funding</option>
                         <option value="Other">Other Strategic Advisory</option>
                     </select>
                 </div>
@@ -402,7 +408,7 @@
                 const updateCount = () => {
                     const target = +counter.getAttribute('data-target');
                     const speed = +counter.getAttribute('data-speed');
-                    const count = +counter.innerText; // Sadece sayıyı al, temizlemeye gerek yok artık
+                    const count = +counter.innerText;
                     
                     const inc = target / speed;
 
@@ -410,7 +416,7 @@
                         counter.innerText = Math.ceil(count + inc);
                         setTimeout(updateCount, 20);
                     } else {
-                        counter.innerText = target; // Sadece hedef sayıyı yaz
+                        counter.innerText = target;
                     }
                 };
                 updateCount();

@@ -26,7 +26,7 @@
 
         /* HEADER & NAVIGATION */
         header {
-            background-color: var(--primary); /* Logo her zaman görünsün diye koyu zemin */
+            background-color: var(--primary);
             padding: 0 5%;
             display: flex;
             justify-content: space-between;
@@ -39,19 +39,12 @@
             height: 70px;
         }
 
-        /* HEADER LOGO IMAGE (TR2UK Original) */
-        .nav-logo-img {
-            height: 50px; /* Header içine tam oturur */
-            width: auto;
-            margin-top: 5px;
-        }
+        .nav-logo-img { height: 50px; width: auto; margin-top: 5px; }
 
-        /* DESKTOP NAV */
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
         nav a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; font-weight: 500; }
         nav a:hover { color: var(--accent); }
 
-        /* MOBILE MENU ICON (HAMBURGER) */
         .menu-toggle { display: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
 
         /* HERO SECTION */
@@ -65,7 +58,7 @@
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.7)), url('banner.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Masaüstünde sabit */
+            background-attachment: fixed;
             color: var(--white);
         }
 
@@ -96,17 +89,31 @@
         }
         .btn:hover { background-color: rgba(100, 255, 218, 0.1); transform: translateY(-2px); }
 
-        /* SECTIONS GENERAL (Boşluklar azaltıldı) */
+        /* SECTIONS GENERAL */
         section { padding: 80px 10%; width: 100%; }
         
         .section-title { font-size: 2rem; margin-bottom: 40px; position: relative; display: inline-block; color: var(--primary); }
         .section-title::after { content: ""; display: block; width: 60%; height: 4px; background: var(--primary); margin-top: 10px; }
 
-        /* STATS COUNTER */
+        /* STATS COUNTER - REVİZE EDİLDİ */
         #stats { background-color: var(--primary); color: var(--white); padding: 50px 10%; text-align: center; }
         .stats-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .stat-item { flex: 1; min-width: 200px; }
-        .stat-number { font-size: 2.8rem; font-weight: 800; color: var(--accent); display: block; margin-bottom: 5px; }
+        
+        /* Sayı grubu konteynerı */
+        .stat-number-container {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: flex;
+            justify-content: center;
+            align-items: baseline; /* Sayı ve sembolleri hizalar */
+            margin-bottom: 5px;
+        }
+        
+        /* Semboller (£, M, +) için stil */
+        .stat-symbol { font-size: 2.8rem; font-weight: 800; color: var(--accent); }
+        
         .stat-label { font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; line-height: 1.4; }
 
         /* ABOUT */
@@ -151,31 +158,19 @@
         .social-links { margin-top: 15px; }
         .social-links a { color: var(--white); font-size: 1.4rem; margin: 0 15px; transition: color 0.3s; text-decoration: none !important; }
         
-        /* --- RESPONSIVE CSS (MOBİL & TABLET) --- */
+        /* RESPONSIVE CSS */
         @media (max-width: 768px) {
-            /* Mobil Banner Fix */
             .hero { background-attachment: scroll; background-position: center top; } 
             .hero h1 { font-size: 2.1rem; }
             .hero h3 { font-size: 1.1rem; }
-            
-            section { padding: 50px 5%; } /* Mobilde boşluklar daha da azaldı */
-            
-            /* Mobil Menü Sistemi */
+            section { padding: 50px 5%; }
             .menu-toggle { display: block; }
             nav {
-                display: none; /* Varsayılan gizli */
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
-                padding: 20px;
-                text-align: center;
-                border-top: 1px solid rgba(255,255,255,0.1);
+                display: none;
+                position: absolute; top: 70px; left: 0; width: 100%; background-color: var(--primary); padding: 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);
             }
-            nav.active { display: block; } /* JS ile açılacak */
+            nav.active { display: block; }
             nav ul { flex-direction: column; gap: 15px; }
-
             .about-grid, .book-section { grid-template-columns: 1fr; display: block; }
             .book-cover { margin: 0 auto 30px auto; display: block; width: 200px; }
             .stats-grid { flex-direction: column; gap: 30px; }
@@ -188,11 +183,9 @@
         <a href="index.html">
             <img src="logo.png" alt="TR2UK Logo" class="nav-logo-img">
         </a>
-        
         <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
-
         <nav id="navbar">
             <ul>
                 <li><a href="#about" onclick="toggleMenu()">Founder</a></li>
@@ -215,22 +208,40 @@
 
     <section id="stats">
         <div class="stats-grid">
+            
             <div class="stat-item">
-                <span class="stat-number" data-target="12" data-speed="250">0</span>
-                <span class="stat-label">£12M+ PROJECT FUNDING SECURED</span>
+                <div class="stat-number-container">
+                    <span class="stat-symbol">£</span>
+                    <span class="stat-number" data-target="12" data-speed="250">0</span>
+                    <span class="stat-symbol">M+</span>
+                </div>
+                <span class="stat-label">PROJECT FUNDING SECURED</span>
             </div>
+
             <div class="stat-item">
-                <span class="stat-number" data-target="150" data-speed="40">0</span>
-                <span class="stat-label">150+ IP & PATENT STRATEGIES</span>
+                <div class="stat-number-container">
+                    <span class="stat-number" data-target="150" data-speed="40">0</span>
+                    <span class="stat-symbol">+</span>
+                </div>
+                <span class="stat-label">IP & PATENT STRATEGIES</span>
             </div>
+
             <div class="stat-item">
-                <span class="stat-number" data-target="110" data-speed="60">0</span>
-                <span class="stat-label">110+ INDUSTRIAL COLLABORATIONS</span>
+                <div class="stat-number-container">
+                    <span class="stat-number" data-target="110" data-speed="60">0</span>
+                    <span class="stat-symbol">+</span>
+                </div>
+                <span class="stat-label">INDUSTRIAL COLLABORATIONS</span>
             </div>
+
             <div class="stat-item">
-                <span class="stat-number" data-target="75" data-speed="80">0</span>
-                <span class="stat-label">75+ UK MARKET ENTRIES</span>
+                <div class="stat-number-container">
+                    <span class="stat-number" data-target="75" data-speed="80">0</span>
+                    <span class="stat-symbol">+</span>
+                </div>
+                <span class="stat-label">UK MARKET ENTRIES</span>
             </div>
+
         </div>
     </section>
 
@@ -379,38 +390,33 @@
     </footer>
 
     <script>
-        // 1. MOBILE MENU TOGGLE
         function toggleMenu() {
             const nav = document.getElementById('navbar');
             nav.classList.toggle('active');
         }
 
-        // 2. SMART COUNTER ANIMATION
         const counters = document.querySelectorAll('.stat-number');
         
         const runAnimation = () => {
             counters.forEach(counter => {
                 const updateCount = () => {
                     const target = +counter.getAttribute('data-target');
-                    const speed = +counter.getAttribute('data-speed'); // Her sayının hızı özel
-                    const count = +counter.innerText.replace('+', '').replace('£', '').replace('M', ''); // Temizle
+                    const speed = +counter.getAttribute('data-speed');
+                    const count = +counter.innerText; // Sadece sayıyı al, temizlemeye gerek yok artık
                     
                     const inc = target / speed;
 
                     if (count < target) {
-                        // Sayıyı artır (Math.ceil ile yuvarla)
                         counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 20); // 20ms'de bir güncelle
+                        setTimeout(updateCount, 20);
                     } else {
-                        // Bittiğinde orijinal formatı geri koy (Sadece rakam değilse)
-                        counter.innerText = target + "+";
+                        counter.innerText = target; // Sadece hedef sayıyı yaz
                     }
                 };
                 updateCount();
             });
         };
 
-        // Scroll eventi ile tetikleme
         let animated = false;
         window.addEventListener('scroll', () => {
             const statsSection = document.getElementById('stats');

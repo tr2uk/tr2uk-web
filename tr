@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TR2UK | Stratejik Danışmanlık - Mühendislik Mantığı</title>
+    <meta name="description" content="Doç. Dr. Çetin Karakaya, Türkiye ve İngiltere arasındaki stratejik boşluğu hesaplanabilir mühendislik mantığıyla dolduruyor. Misafir olmayın, Oyun Kurucu olun.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* ENGINEERING LOGIC DESIGN SYSTEM */
+        :root {
+            --primary: #0a192f;
+            --accent: #64ffda;
+            --text-light: #ccd6f6;
+            --text-dim: #8892b0;
+            --white: #ffffff;
+            --bg: #f4f4f4;
+            --amazon: #FF9900;
+            --google: #4285F4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        
+        html, body { overflow-x: hidden; width: 100%; position: relative; }
+        body { background-color: var(--white); color: #333; line-height: 1.6; }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: var(--primary);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            height: 70px;
+        }
+
+        .nav-logo-img { height: 50px; width: auto; margin-top: 5px; }
+
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; font-weight: 500; }
+        nav a:hover { color: var(--accent); }
+
+        .menu-toggle { display: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.7)), url('banner.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+        }
+
+        .hero h3 { 
+            color: var(--accent); 
+            font-family: 'Courier New', monospace; 
+            margin-bottom: 20px; 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .hero h1 { font-size: 3.2rem; line-height: 1.1; margin-bottom: 20px; max-width: 900px; font-weight: 800; }
+        .hero p { color: var(--text-light); font-size: 1.2rem; max-width: 700px; margin-bottom: 35px; }
+        
+        .btn {
+            padding: 15px 35px;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-block;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover { background-color: rgba(100, 255, 218, 0.1); transform: translateY(-2px); }
+
+        /* SECTIONS GENERAL */
+        section { padding: 80px 10%; width: 100%; }
+        
+        .section-title { font-size: 2rem; margin-bottom: 40px; position: relative; display: inline-block; color: var(--primary); }
+        .section-title::after { content: ""; display: block; width: 60%; height: 4px; background: var(--primary); margin-top: 10px; }
+
+        /* STATS COUNTER */
+        #stats { background-color: var(--primary); color: var(--white); padding: 50px 10%; text-align: center; }
+        .stats-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .stat-item { flex: 1; min-width: 200px; }
+        
+        .stat-number-container {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        
+        .stat-symbol { font-size: 2.8rem; font-weight: 800; color: var(--accent); }
+        .stat-label { font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; line-height: 1.4; }
+
+        /* ABOUT */
+        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
+        .about-text p { margin-bottom: 15px; color: #444; font-size: 1.05rem; }
+        
+        /* SERVICES */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card {
+            background: var(--white); padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s; border-top: 4px solid var(--text-dim); border-radius: 5px;
+        }
+        .service-card:hover { transform: translateY(-10px); border-top: 4px solid var(--accent); }
+        .service-card h3 { margin-bottom: 15px; color: var(--primary); font-size: 1.3rem; }
+
+        /* BOOK */
+        .book-section { background-color: #f0f2f5; display: flex; align-items: center; gap: 50px; padding: 60px 8%; border-radius: 10px; }
+        .book-cover { width: 280px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: rotate(-3deg); border: 8px solid #fff; transition: transform 0.3s;}
+        .book-cover:hover { transform: rotate(0deg) scale(1.02); }
+
+        /* RESOURCES */
+        .resource-card {
+            background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; flex: 1; min-width: 280px; border-top: 5px solid var(--primary);
+        }
+        
+        /* BUTTONS */
+        .btn-amazon, .btn-google, .btn-download { color: #fff; border: none; padding: 10px; width: 100%; text-align: center; margin-bottom: 8px; border-radius: 4px; font-weight: bold; text-decoration: none; display: block; font-size: 0.9rem;}
+        .btn-amazon { background-color: var(--amazon); }
+        .btn-google { background-color: var(--google); }
+        .btn-download { background-color: #27ae60; }
+        .btn-amazon:hover, .btn-google:hover, .btn-download:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* CONTACT */
+        .contact-container { max-width: 600px; margin: 0 auto; text-align: left; background: #fff; padding: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 8px; border-top: 5px solid var(--primary); }
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--primary); font-size: 0.9rem; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem; background-color: #f9f9f9; }
+
+        /* FOOTER */
+        footer { background: var(--primary); color: var(--text-dim); text-align: center; padding: 40px 10%; font-size: 0.9rem; }
+        .footer-logo-img { height: 50px; width: auto; margin-bottom: 15px; opacity: 0.9; }
+        .social-links { margin-top: 15px; }
+        .social-links a { color: var(--white); font-size: 1.4rem; margin: 0 15px; transition: color 0.3s; text-decoration: none !important; }
+        
+        /* RESPONSIVE CSS */
+        @media (max-width: 768px) {
+            .hero { background-attachment: scroll; background-position: center top; } 
+            .hero h1 { font-size: 2.1rem; }
+            .hero h3 { font-size: 1.1rem; }
+            section { padding: 50px 5%; }
+            .menu-toggle { display: block; }
+            nav {
+                display: none;
+                position: absolute; top: 70px; left: 0; width: 100%; background-color: var(--primary); padding: 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);
+            }
+            nav.active { display: block; }
+            nav ul { flex-direction: column; gap: 15px; }
+            .about-grid, .book-section { grid-template-columns: 1fr; display: block; }
+            .book-cover { margin: 0 auto 30px auto; display: block; width: 200px; }
+            .stats-grid { flex-direction: column; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="logo.png" alt="TR2UK Logo" class="nav-logo-img">
+        </a>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#about" onclick="toggleMenu()">Kurucu</a></li>
+                <li><a href="#services" onclick="toggleMenu()">Çözümler</a></li>
+                <li><a href="#book" onclick="toggleMenu()">Kitap</a></li>
+                <li><a href="#resources" onclick="toggleMenu()">Kaynaklar</a></li>
+                <li><a href="https://www.linkedin.com/in/drckarakaya/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                <li><span style="color:rgba(255,255,255,0.5); cursor:default; font-weight:bold;">TR</span> <span style="color:rgba(255,255,255,0.3)">|</span> <a href="index.html" style="font-weight:bold; color:var(--accent);">EN</a></li>
+                <li><a href="#contact" style="color:var(--accent); border: 1px solid var(--accent); padding: 8px 15px; border-radius: 4px;" onclick="toggleMenu()">Başvuru</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h3>TİCARET İÇİN MÜHENDİSLİK MANTIĞI</h3>
+        <h1>Misafir Olmayın.<br>Oyun Kurucu Olun.</h1>
+        <p>Doç. Dr. Çetin Karakaya, Türkiye ve İngiltere arasındaki ticari boşluğu tavsiyelerle değil, hesaplanmış stratejilerle dolduruyor.</p>
+        <a href="#contact" class="btn">Stratejik Analiz Randevusu</a>
+    </div>
+
+    <section id="stats">
+        <div class="stats-grid">
+            
+            <div class="stat-item">
+                <div class="stat-number-container">
+                    <span class="stat-symbol">£</span>
+                    <span class="stat-number" data-target="12" data-speed="250">0</span>
+                    <span class="stat-symbol">M+</span>
+                </div>
+                <span class="stat-label">YÖNETİLEN PROJE FONU</span>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-number-container">
+                    <span class="stat-number" data-target="150" data-speed="40">0</span>
+                    <span class="stat-symbol">+</span>
+                </div>
+                <span class="stat-label">FİKRİ MÜLKİYET & PATENT</span>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-number-container">
+                    <span class="stat-number" data-target="110" data-speed="60">0</span>
+                    <span class="stat-symbol">+</span>
+                </div>
+                <span class="stat-label">SANAYİ İŞBİRLİKLERİ</span>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-number-container">
+                    <span class="stat-number" data-target="75" data-speed="80">0</span>
+                    <span class="stat-symbol">+</span>
+                </div>
+                <span class="stat-label">İNGİLTERE PAZARINA GİRİŞ</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Mühendislik Yaklaşımı</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p style="font-size:1.3rem; color:var(--primary); font-weight:600;">"Ticari problemlere bir mühendis gözüyle bakarım: Analitik, hesaplanabilir ve çözülebilir."</p>
+                <p>İngiltere merkezli bir Doçent ve Danışman olarak, size geçici "yamalar" sunmam. Sürdürülebilir ticari sistemler tasarlar ve inşa ederim.</p>
+                <p>Misyonum; veri, hukuk ve strateji ile desteklenmiş sağlam bir varlık kurarak sizi İngiltere pazarında kalıcı bir "Oyun Kurucu" konumuna getirmektir.</p>
+                <p style="margin-top:20px; font-weight:bold; color:#555;">Mühendislik & Strateji Deneyimi: 25+ Yıl (TR+UK)</p>
+            </div>
+            <div class="about-img">
+                <img src="profil.jpg" alt="Dr Cetin Karakaya" style="width:100%; border-radius:5px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background:#f9f9f9;">
+        <h2 class="section-title">Stratejik Çözümler</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>01. UK Pazar Mimarisi</h3>
+                <p>İngiltere operasyonlarınızı Hukuk, Finans ve Lojistikten oluşan "Üç Ayaklı Model" üzerine kuruyoruz. Pazar girişini bir inşaat projesi titizliğiyle yönetiyoruz.</p>
+            </div>
+            <div class="service-card">
+                <h3>02. Stratejik Kilit Çözümü</h3>
+                <p>Bürokratik veya ticari çıkmazları açıyoruz. Duygusal kararların yerine hesaplanabilir, doğrulanabilir mühendislik metriklerini koyuyoruz.</p>
+            </div>
+            <div class="service-card">
+                <h3>03. İnovasyon & Fonlama</h3>
+                <p>"Grant Winner" (Fon Kazanan) tecrübemle (TÜBİTAK/Innovate UK), Ar-Ge yol haritanızı çiziyor ve teknolojik büyümeniz için gerekli fonları yönetiyorum.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="book">
+        <div class="book-section">
+            <div>
+                <img src="kitap.jpg" alt="The Baird Effect Book Cover" class="book-cover">
+            </div>
+            <div>
+                <h2 class="section-title" style="margin-bottom:20px;">The Baird Effect</h2>
+                <h3 style="color:#555; margin-bottom:20px;">Yapay Zeka Çağında Girişimleri Yeniden Keşfetmek</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 30px;">
+                    "Ya en büyük başarısız fikirleriniz, yarının kazanan girişimleri olsaydı?"<br><br>
+                    Dr. Çetin Karakaya bu kitabında, girişimcilerin bugünün yapay zeka araçlarını kullanarak projelerini nasıl yeniden icat edebileceklerini anlatıyor.
+                </p>
+                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-amazon" style="display:inline-block; width:auto;">
+                    <i class="fab fa-amazon"></i> Amazon'dan İncele
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources" style="background-color: #eaeaea; padding: 80px 10%; text-align: center;">
+        <h2 class="section-title">Yayınlar & Kaynaklar</h2>
+        <p style="margin-bottom: 40px; color: #555; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Yayınlanmış eserlerime ve topluluk rehberlerine buradan ulaşabilirsiniz.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+            
+            <div class="resource-card">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">🇬🇧 İngiltere İş Rehberi (2025)</h3>
+                <span style="background: #27ae60; color: #fff; padding: 4px 10px; font-size: 0.8rem; border-radius: 4px; font-weight:bold;">Hediye</span>
+                <p style="font-size: 0.95rem; margin: 15px 0; color: #333;">
+                    İngiltere'deki Türk girişimciler için temel el kitabı. Topluluk üyelerine ücretsiz.
+                </p>
+                <a href="guide.pdf" target="_blank" class="btn-download">
+                    <i class="fas fa-file-pdf"></i> PDF İndir
+                </a>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #777;">
+                    <em>*2026 Sürümü hazırlanmaktadır.</em>
+                </p>
+            </div>
+
+            <div class="resource-card">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">📚 Kitaplar & Sesli Yayınlar</h3>
+                <p style="font-size: 0.95rem; margin: 15px 0; color: #333;">
+                    Stratejik içgörülere global platformlardan ulaşın.
+                </p>
+                <a href="https://amzn.eu/d/0hCmBPlc" target="_blank" class="btn-amazon">
+                    <i class="fab fa-amazon"></i> Amazon
+                </a>
+                <a href="https://play.google.com/store/books/details?id=q1yfEQAAQBAJ" target="_blank" class="btn-google">
+                    <i class="fab fa-google-play"></i> Google Play
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align:center; padding-bottom: 80px;">
+        <h2 class="section-title">Danışmanlık Başvurusu</h2>
+        <p style="max-width:600px; margin:0 auto 40px auto; font-size:1.1rem;">
+            Yüksek hassasiyetli uygulama için sınırlı sayıda danışanla çalışıyorum.
+        </p>
+        
+        <div class="contact-container">
+            <form action="https://formspree.io/f/mjgevzna" method="POST">
+                <div class="form-group">
+                    <label class="form-label">Ad Soyad</label>
+                    <input type="text" name="name" class="form-control" required placeholder="Adınız Soyadınız">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Şirket / Unvan</label>
+                    <input type="text" name="company" class="form-control" required placeholder="Şirket Adı & Pozisyonunuz">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">E-Posta Adresi</label>
+                    <input type="email" name="email" class="form-control" required placeholder="kurumsal@sirket.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Danışmanlık Konusu</label>
+                    <select name="type" class="form-control">
+                        <option value="Market Entry">UK Pazarına Giriş (Tripod Modeli)</option>
+                        <option value="Crisis Resolution">Stratejik Kriz Yönetimi</option>
+                        <option value="Innovation/R&D">İnovasyon & Ar-Ge Fonlama</option>
+                        <option value="Other">Diğer Stratejik Danışmanlık</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Stratejik Hedefiniz (Özet)</label>
+                    <textarea name="message" class="form-control" rows="4" placeholder="Yaşadığınız kilitlenme veya hedefiniz hakkında kısa bilgi..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="background:var(--primary); color:#fff; border:none; width:100%; font-size:1.1rem;">
+                    Başvuruyu Gönder
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <img src="logo.png" alt="TR2UK Logo" class="footer-logo-img">
+        <p>&copy; 2026 TR2UK Stratejik Danışmanlık. Tüm Hakları Saklıdır.</p>
+        <p style="margin-top:10px;">Doç. Dr. Çetin Karakaya | FIMechE Adayı</p>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/drckarakaya/" target="_blank" title="LinkedIn'de Bağlan">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:ck@tr2uk.com" title="E-Posta Gönder">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('active');
+        }
+
+        const counters = document.querySelectorAll('.stat-number');
+        
+        const runAnimation = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const speed = +counter.getAttribute('data-speed');
+                    const count = +counter.innerText;
+                    
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        let animated = false;
+        window.addEventListener('scroll', () => {
+            const statsSection = document.getElementById('stats');
+            const sectionPos = statsSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.3;
+
+            if(sectionPos < screenPos && !animated) {
+                runAnimation();
+                animated = true;
+            }
+        });
+    </script>
+
+</body>
+</html>

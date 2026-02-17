@@ -84,7 +84,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
     <style>@font-face { font-display: swap; }</style>
     <style>
         /* ENGINEERING LOGIC DESIGN SYSTEM */
@@ -92,7 +93,7 @@
             --primary: #0a192f;
             --accent: #64ffda;
             --text-light: #ccd6f6;
-            --text-dim: #8892b0;
+            --text-dim: #b0bec5;
             --white: #ffffff;
             --bg: #f4f4f4;
         }
@@ -134,7 +135,7 @@
             align-items: center;
             text-align: center;
             padding: 0 10%;
-            background: linear-gradient(rgba(10, 25, 47, 0.40), rgba(10, 25, 47, 0.30)), url('banner.jpg');
+            background: linear-gradient(rgba(10, 25, 47, 0.40), rgba(10, 25, 47, 0.30)), url('banner.webp'), url('banner.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -195,7 +196,7 @@
 
         /* ABOUT */
         .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
-        .about-text p { margin-bottom: 15px; color: #444; font-size: 1.05rem; }
+        .about-text p { margin-bottom: 15px; color: #333; font-size: 1.05rem; }
         
         /* SERVICES */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -274,7 +275,7 @@
 
     <header>
         <a href="index.html">
-            <img src="logo.png" alt="TR2UK Logo" class="nav-logo-img" width="200" height="85">
+            <img src="logo.png" alt="TR2UK Logo" class="nav-logo-img" width="85" height="85">
         </a>
         <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
@@ -341,10 +342,13 @@
                 <p style="font-size:1.3rem; color:var(--primary); font-weight:600;">"I view business problems through the lens of an engineer: Analytical, calculable, and solvable."</p>
                 <p>As an Associate Professor and Principal Consultant based in the UK, I do not offer temporary "fixes". I design and build sustainable commercial systems.</p>
                 <p>My mission is to position you as a permanent "Game Maker" in the UK market by establishing a solid presence backed by data, law, and strategy.</p>
-                <p style="margin-top:20px; font-weight:bold; color:#555;">Years of Engineering Logic: 25+ (TR+UK)</p>
+                <p style="margin-top:20px; font-weight:bold; color:#333;">Years of Engineering Logic: 25+ (TR+UK)</p>
             </div>
             <div class="about-img">
-                <img src="profil.jpg" alt="Dr Cetin Karakaya — TR2UK Principal Consultant" width="400" height="400" style="width:100%; border-radius:5px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);" loading="lazy">
+                <picture>
+                    <source srcset="profil.webp" type="image/webp">
+                    <img src="profil.jpg" alt="Dr Cetin Karakaya — TR2UK Principal Consultant" width="400" height="400" style="width:100%; border-radius:5px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);" loading="lazy">
+                </picture>
             </div>
         </div>
     </section>
@@ -370,11 +374,14 @@
     <section id="book">
         <div class="book-section">
             <div>
-                <img src="kitap.jpg" alt="The Baird Effect Book Cover" class="book-cover" width="280" height="380" loading="lazy">
+                <picture>
+                    <source srcset="kitap.webp" type="image/webp">
+                    <img src="kitap.jpg" alt="The Baird Effect Book Cover" class="book-cover" width="280" height="447" loading="lazy">
+                </picture>
             </div>
             <div>
                 <h2 class="section-title" style="margin-bottom:20px;">The Baird Effect</h2>
-                <h3 style="color:#555; margin-bottom:20px;">Reinventing Start-ups in the Age of AI</h3>
+                <h3 style="color:#333; margin-bottom:20px;">Reinventing Start-ups in the Age of AI</h3>
                 <p style="font-size: 1.1rem; margin-bottom: 30px;">
                     "What if your biggest failed ideas could become tomorrow’s winning start-ups?"<br><br>
                     In this groundbreaking book, Dr. Cetin Karakaya explores how entrepreneurs can reinvent their ventures using today's AI-driven tools. Based on real projects built between 2004-2014 and reimagined today.
@@ -388,7 +395,7 @@
 
     <section id="resources" style="background-color: #eaeaea; padding: 80px 10%; text-align: center;">
         <h2 class="section-title">Publications & Resources</h2>
-        <p style="margin-bottom: 40px; color: #555; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <p style="margin-bottom: 40px; color: #333; max-width: 700px; margin-left: auto; margin-right: auto;">
             Access my published works and community guides below.
         </p>
 
@@ -403,7 +410,7 @@
                 <a href="guide.pdf" target="_blank" class="btn-resource">
                     <i class="fas fa-file-pdf icon-pdf"></i> Download PDF
                 </a>
-                <p style="margin-top: 10px; font-size: 0.8rem; color: #777;">
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #555;">
                     <em>*2026 Edition coming soon.</em>
                 </p>
             </div>
@@ -466,10 +473,10 @@
     </main>
 
     <footer style="background: var(--primary); color: var(--text-dim); text-align: center; padding: 50px 10%; font-size: 0.9rem;">
-        <img src="logo.png" alt="TR2UK Logo" class="footer-logo-img" width="300" height="150" style="margin-bottom: 20px;" loading="lazy">
+        <img src="logo.png" alt="TR2UK Logo" class="footer-logo-img" width="150" height="150" style="margin-bottom: 20px;" loading="lazy">
         
         <p style="margin-bottom: 5px; color: var(--white); font-weight: 600;">TR2UK Strategic Consulting</p>
-        <p style="font-size: 0.8rem; color: #8892b0; margin-bottom: 20px;">
+        <p style="font-size: 0.8rem; color: #b0bec5; margin-bottom: 20px;">
             TR2UK is a registered trademark and trading name of Assoc. Prof. Dr. Cetin Karakaya.<br>
             Hastings, East Sussex, United Kingdom.
         </p>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TR2UK | Strategic Consulting - Engineering Logic</title>
     <meta name="description" content="Assoc. Prof. Dr. Cetin Karakaya bridges the strategic gap between Turkey and the UK. Stop being a Guest. Become a Game Maker.">
 
@@ -13,6 +13,7 @@
     <link rel="alternate" hreflang="x-default" href="https://tr2uk.com/index.html">
 
     <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
 
@@ -84,6 +85,7 @@
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>@font-face { font-display: swap; }</style>
     <style>
         /* ENGINEERING LOGIC DESIGN SYSTEM */
         :root {
@@ -112,10 +114,10 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            height: 90px;
+            height: 100px;
         }
 
-        .nav-logo-img { height: 70px; width: auto; }
+        .nav-logo-img { height: 85px; width: auto; }
 
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
         nav a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; font-weight: 500; }
@@ -132,7 +134,7 @@
             align-items: center;
             text-align: center;
             padding: 0 10%;
-            background: linear-gradient(rgba(10, 25, 47, 0.55), rgba(10, 25, 47, 0.45)), url('banner.jpg');
+            background: linear-gradient(rgba(10, 25, 47, 0.40), rgba(10, 25, 47, 0.30)), url('banner.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -245,7 +247,7 @@
 
         /* FOOTER */
         footer { background: var(--primary); color: var(--text-dim); text-align: center; padding: 40px 10%; font-size: 0.9rem; }
-        .footer-logo-img { height: 50px; width: auto; margin-bottom: 15px; opacity: 0.9; }
+        .footer-logo-img { height: 150px; width: auto; margin-bottom: 15px; opacity: 0.95; }
         .social-links { margin-top: 15px; }
         .social-links a { color: var(--white); font-size: 1.4rem; margin: 0 10px; transition: color 0.3s; text-decoration: none !important; }
         
@@ -258,7 +260,7 @@
             .menu-toggle { display: block; }
             nav {
                 display: none;
-                position: absolute; top: 90px; left: 0; width: 100%; background-color: var(--primary); padding: 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);
+                position: absolute; top: 100px; left: 0; width: 100%; background-color: var(--primary); padding: 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);
             }
             nav.active { display: block; }
             nav ul { flex-direction: column; gap: 15px; }
@@ -272,7 +274,7 @@
 
     <header>
         <a href="index.html">
-            <img src="logo.png" alt="TR2UK Logo" class="nav-logo-img">
+            <img src="logo.png" alt="TR2UK Logo" class="nav-logo-img" width="200" height="85">
         </a>
         <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
@@ -290,6 +292,7 @@
         </nav>
     </header>
 
+    <main>
     <div class="hero">
         <h3>ENGINEERING LOGIC FOR BUSINESS</h3>
         <h1>Stop being a Guest.<br>Become a Game Maker.</h1>
@@ -341,7 +344,7 @@
                 <p style="margin-top:20px; font-weight:bold; color:#555;">Years of Engineering Logic: 25+ (TR+UK)</p>
             </div>
             <div class="about-img">
-                <img src="profil.jpg" alt="Dr Cetin Karakaya" style="width:100%; border-radius:5px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <img src="profil.jpg" alt="Dr Cetin Karakaya — TR2UK Principal Consultant" width="400" height="400" style="width:100%; border-radius:5px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);" loading="lazy">
             </div>
         </div>
     </section>
@@ -367,7 +370,7 @@
     <section id="book">
         <div class="book-section">
             <div>
-                <img src="kitap.jpg" alt="The Baird Effect Book Cover" class="book-cover">
+                <img src="kitap.jpg" alt="The Baird Effect Book Cover" class="book-cover" width="280" height="380" loading="lazy">
             </div>
             <div>
                 <h2 class="section-title" style="margin-bottom:20px;">The Baird Effect</h2>
@@ -441,8 +444,8 @@
                     <input type="email" name="email" class="form-control" required placeholder="official@company.com">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Consultation Type</label>
-                    <select name="type" class="form-control">
+                    <label class="form-label" for="consultation-type">Consultation Type</label>
+                    <select name="type" id="consultation-type" class="form-control">
                         <option value="Market Entry">UK Market Entry (Tripod Model)</option>
                         <option value="Crisis Resolution">Strategic Crisis Resolution</option>
                         <option value="Innovation/IP">Innovation / IP / Project Funding</option>
@@ -460,8 +463,10 @@
         </div>
     </section>
 
+    </main>
+
     <footer style="background: var(--primary); color: var(--text-dim); text-align: center; padding: 50px 10%; font-size: 0.9rem;">
-        <img src="logo.png" alt="TR2UK Logo" class="footer-logo-img" style="height: 50px; width: auto; margin-bottom: 20px; opacity: 0.9;">
+        <img src="logo.png" alt="TR2UK Logo" class="footer-logo-img" width="300" height="150" style="margin-bottom: 20px;" loading="lazy">
         
         <p style="margin-bottom: 5px; color: var(--white); font-weight: 600;">TR2UK Strategic Consulting</p>
         <p style="font-size: 0.8rem; color: #8892b0; margin-bottom: 20px;">

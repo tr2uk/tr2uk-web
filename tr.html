@@ -116,7 +116,7 @@
             height: 90px;
         }
 
-        .nav-logo-img { height: 70px; width: auto; filter: brightness(0) invert(1); }
+        .nav-logo-img { height: 70px; width: auto; }
 
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
         nav a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; font-weight: 500; }
@@ -130,27 +130,29 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
+            text-align: center;
             padding: 0 10%;
-            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.7)), url('banner.jpg');
+            background: linear-gradient(rgba(10, 25, 47, 0.55), rgba(10, 25, 47, 0.45)), url('banner.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: var(--white);
         }
 
-        .hero h3 { 
-            color: var(--accent); 
-            font-family: 'Courier New', monospace; 
-            margin-bottom: 20px; 
-            font-size: 1.5rem; 
-            font-weight: 700; 
+        .hero h3 {
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.6);
         }
         
-        .hero h1 { font-size: 3.2rem; line-height: 1.1; margin-bottom: 20px; max-width: 900px; font-weight: 800; }
-        .hero p { color: var(--text-light); font-size: 1.2rem; max-width: 700px; margin-bottom: 35px; }
+        .hero h1 { font-size: 3.2rem; line-height: 1.1; margin-bottom: 20px; max-width: 900px; font-weight: 800; text-shadow: 0 2px 12px rgba(0,0,0,0.7); }
+        .hero p { color: var(--text-light); font-size: 1.2rem; max-width: 700px; margin-bottom: 35px; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
         
         .btn {
             padding: 15px 35px;
@@ -244,7 +246,7 @@
 
         /* FOOTER */
         footer { background: var(--primary); color: var(--text-dim); text-align: center; padding: 40px 10%; font-size: 0.9rem; }
-        .footer-logo-img { height: 50px; width: auto; margin-bottom: 15px; opacity: 0.9; filter: brightness(0) invert(1); }
+        .footer-logo-img { height: 50px; width: auto; margin-bottom: 15px; opacity: 0.9; }
         .social-links { margin-top: 15px; }
         .social-links a { color: var(--white); font-size: 1.4rem; margin: 0 10px; transition: color 0.3s; text-decoration: none !important; }
         

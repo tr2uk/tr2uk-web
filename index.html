@@ -211,7 +211,7 @@
 
         /* BOOK */
         .book-section { background-color: #f0f2f5; display: flex; align-items: center; gap: 50px; padding: 60px 8%; border-radius: 10px; }
-        .book-cover { width: 280px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: rotate(-3deg); border: 8px solid #fff; transition: transform 0.3s;}
+        .book-cover { width: clamp(150px, 50%, 250px); height: auto; }
         .book-cover:hover { transform: rotate(0deg) scale(1.02); }
 
         /* RESOURCES */

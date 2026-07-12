@@ -44,7 +44,7 @@ const professionalServiceJsonLd = {
   name: 'TR2UK',
   url: SITE_URL,
   image: `${SITE_URL}/assets/banner.jpg`,
-  email: 'ck@tr2uk.com',
+  email: 'hello@tr2uk.com',
   areaServed: ['GB', 'TR'],
   serviceType: [
     'Consulting',

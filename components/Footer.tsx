@@ -23,11 +23,6 @@ export default function Footer() {
           </h2>
           <ul className="space-y-1 text-sm">
             <li>
-              <a href="mailto:ck@tr2uk.com" className="hover:text-white">
-                ck@tr2uk.com
-              </a>
-            </li>
-            <li>
               <a href="mailto:hello@tr2uk.com" className="hover:text-white">
                 hello@tr2uk.com
               </a>

@@ -1,26 +1,16 @@
 import type { Metadata } from 'next';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { buildMetadata } from '@/lib/seo';
+import { getT, routeMetadata } from '@/lib/content';
 import { Page, PageHeader } from '@/components/ui';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  return buildMetadata({ locale, path: 'publishing', namespace: 'publishing' });
-}
+const t = getT('publishing');
 
-export default async function PublishingPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'publishing' });
+export const metadata: Metadata = routeMetadata(
+  'publishing',
+  t('title'),
+  t('intro')
+);
 
+export default function PublishingPage() {
   return (
     <Page>
       <PageHeader title={t('title')} intro={t('intro')} />
@@ -64,9 +54,7 @@ export default async function PublishingPage({
 
       {/* Future books */}
       <section className="rounded-lg bg-slate-50 p-6">
-        <h2 className="text-lg font-semibold text-primary">
-          {t('future.title')}
-        </h2>
+        <h2 className="text-lg font-semibold text-primary">{t('future.title')}</h2>
         <p className="mt-2 text-slate-600">{t('future.body')}</p>
       </section>
     </Page>

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Bai_Jamjuree } from 'next/font/google';
 import './globals.css';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const bai = Bai_Jamjuree({
   subsets: ['latin', 'latin-ext'],
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
     template: '%s · TR2UK',
   },
   description:
-    'TR2UK — consulting, digital solutions, publishing and compliance services bridging Türkiye and the United Kingdom.',
+    'TR2UK – consulting, digital solutions, publishing and compliance services bridging Türkiye and the United Kingdom.',
   openGraph: {
     type: 'website',
     siteName: 'TR2UK',
@@ -73,7 +75,11 @@ export default function RootLayout({
             __html: JSON.stringify(professionalServiceJsonLd),
           }}
         />
-        {children}
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -1,32 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { buildMetadata } from '@/lib/seo';
-import { localePath } from '@/components/nav';
+import { getT, routeMetadata } from '@/lib/content';
 import { Page, PageHeader, Placeholder } from '@/components/ui';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  return buildMetadata({
-    locale,
-    path: 'digital-solutions',
-    namespace: 'digital',
-  });
-}
+const t = getT('digital');
 
-export default async function DigitalPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'digital' });
+export const metadata: Metadata = routeMetadata(
+  'digital-solutions',
+  t('title'),
+  t('intro')
+);
 
+export default function DigitalPage() {
   return (
     <Page>
       <PageHeader title={t('title')} intro={t('intro')} />
@@ -55,9 +40,7 @@ export default async function DigitalPage({
 
       {/* B2Verify */}
       <section className="mb-14">
-        <h2 className="text-2xl font-bold text-primary">
-          {t('b2verify.title')}
-        </h2>
+        <h2 className="text-2xl font-bold text-primary">{t('b2verify.title')}</h2>
         <p className="mt-2 max-w-2xl text-slate-600">{t('b2verify.body')}</p>
         <a
           href="https://b2verify.com"
@@ -92,7 +75,7 @@ export default async function DigitalPage({
         <ul className="mt-3 space-y-2">
           <li>
             <Link
-              href={localePath(locale, 'fire-safety')}
+              href="/fire-safety/"
               className="text-primary underline decoration-accent"
             >
               {t('crossRefs.fire')}
@@ -100,7 +83,7 @@ export default async function DigitalPage({
           </li>
           <li>
             <Link
-              href={localePath(locale, 'food-hygiene')}
+              href="/food-hygiene/"
               className="text-primary underline decoration-accent"
             >
               {t('crossRefs.food')}

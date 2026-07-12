@@ -1,7 +1,7 @@
-import { getTranslations } from 'next-intl/server';
+import { getT } from '@/lib/content';
 
-export default async function Footer({ locale }: { locale: string }) {
-  const t = await getTranslations({ locale, namespace: 'footer' });
+export default function Footer() {
+  const t = getT('footer');
 
   return (
     <footer className="mt-16 bg-primary text-slate-300">

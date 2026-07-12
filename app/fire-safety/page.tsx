@@ -1,26 +1,16 @@
 import type { Metadata } from 'next';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { buildMetadata } from '@/lib/seo';
+import { getT, routeMetadata } from '@/lib/content';
 import { Page, PageHeader, StaticForm, Field } from '@/components/ui';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  return buildMetadata({ locale, path: 'fire-safety', namespace: 'fire' });
-}
+const t = getT('fire');
 
-export default async function FireSafetyPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'fire' });
+export const metadata: Metadata = routeMetadata(
+  'fire-safety',
+  t('title'),
+  t('intro')
+);
 
+export default function FireSafetyPage() {
   return (
     <Page>
       <PageHeader title={t('title')} intro={t('intro')} />

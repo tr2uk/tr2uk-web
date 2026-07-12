@@ -1,26 +1,16 @@
 import type { Metadata } from 'next';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { buildMetadata } from '@/lib/seo';
+import { getT, routeMetadata } from '@/lib/content';
 import { Page, PageHeader, Card, StaticForm, Field } from '@/components/ui';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  return buildMetadata({ locale, path: 'consulting', namespace: 'consulting' });
-}
+const t = getT('consulting');
 
-export default async function ConsultingPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'consulting' });
+export const metadata: Metadata = routeMetadata(
+  'consulting',
+  t('title'),
+  t('intro')
+);
 
+export default function ConsultingPage() {
   const services = ['marketEntry', 'tripod', 'deadlock', 'innovation'] as const;
 
   return (

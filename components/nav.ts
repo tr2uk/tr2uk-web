@@ -10,6 +10,6 @@ export const navItems = [
   { key: 'contact', path: 'contact' },
 ] as const;
 
-export function localePath(locale: string, path: string) {
-  return path ? `/${locale}/${path}/` : `/${locale}/`;
+export function href(path: string) {
+  return path ? `/${path}/` : '/';
 }

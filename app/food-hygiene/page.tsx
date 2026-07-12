@@ -1,26 +1,16 @@
 import type { Metadata } from 'next';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { buildMetadata } from '@/lib/seo';
+import { getT, routeMetadata } from '@/lib/content';
 import { Page, PageHeader, StaticForm, Field } from '@/components/ui';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  return buildMetadata({ locale, path: 'food-hygiene', namespace: 'food' });
-}
+const t = getT('food');
 
-export default async function FoodHygienePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'food' });
+export const metadata: Metadata = routeMetadata(
+  'food-hygiene',
+  t('title'),
+  t('intro')
+);
 
+export default function FoodHygienePage() {
   return (
     <Page>
       <PageHeader title={t('title')} intro={t('intro')} />

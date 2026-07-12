@@ -1,26 +1,12 @@
 import type { Metadata } from 'next';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { buildMetadata } from '@/lib/seo';
+import { getT, routeMetadata } from '@/lib/content';
 import { Page, PageHeader, StaticForm, Field } from '@/components/ui';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  return buildMetadata({ locale, path: 'contact', namespace: 'contact' });
-}
+const t = getT('contact');
 
-export default async function ContactPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'contact' });
+export const metadata: Metadata = routeMetadata('contact', t('title'), t('intro'));
 
+export default function ContactPage() {
   return (
     <Page>
       <PageHeader title={t('title')} intro={t('intro')} />

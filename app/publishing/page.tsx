@@ -1,61 +1,67 @@
 import type { Metadata } from 'next';
-import { getT, routeMetadata } from '@/lib/content';
+import Image from 'next/image';
+import { routeMetadata } from '@/lib/content';
 import { Page, PageHeader } from '@/components/ui';
 
-const t = getT('publishing');
+const INTRO =
+  'TR2UK Publishing – yapay zekâ çağında girişimcilik ve UK’de iş kurma üzerine kaynaklar.';
 
 export const metadata: Metadata = routeMetadata(
   'publishing',
-  t('title'),
-  t('intro')
+  'TR2UK Publishing',
+  INTRO
 );
 
 export default function PublishingPage() {
   return (
     <Page>
-      <PageHeader title={t('title')} intro={t('intro')} />
+      <PageHeader title="Publishing" intro={INTRO} />
 
-      {/* The Baird Effect */}
-      <section className="mb-14 grid gap-8 md:grid-cols-[240px_1fr] md:items-start">
-        <div className="max-w-[240px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+      {/* ITEM 1 — The Baird Effect (featured) */}
+      <section className="mb-14 grid gap-8 md:grid-cols-[220px_1fr] md:items-start">
+        <div className="mx-auto w-full max-w-[220px]">
+          <Image
             src="/assets/kitap.webp"
-            alt={t('baird.title')}
-            className="w-full rounded-md shadow"
+            width={938}
+            height={1500}
+            alt="The Baird Effect – Reinventing Start-ups in the Age of AI"
+            className="w-full rounded-lg border border-slate-200 shadow-md"
+            priority
           />
         </div>
         <div>
-          <h2 className="text-2xl font-bold text-primary">{t('baird.title')}</h2>
-          <p className="mt-2 text-slate-600">{t('baird.body')}</p>
+          <h2 className="text-2xl font-bold text-primary">The Baird Effect</h2>
+          <p className="mt-1 text-lg font-medium text-slate-500">
+            Reinventing Start-ups in the Age of AI
+          </p>
+          <p className="mt-4 max-w-2xl leading-relaxed text-slate-600">
+            Yapay zekâ çağında girişimciliği ve start-up kurmayı yeniden düşünen
+            kitap. 2025 · 205 sayfa · tüm Amazon mağazalarında.
+          </p>
           <a
-            href="https://www.amazon.com"
+            href="https://amzn.eu/d/0b2gFaqI"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block rounded-md bg-primary px-5 py-2 font-medium text-white hover:opacity-90"
+            className="mt-6 inline-block rounded-md bg-primary px-5 py-2 font-medium text-white hover:opacity-90"
           >
-            {t('baird.amazon')}
+            Amazon&rsquo;da satın al →
           </a>
         </div>
       </section>
 
-      {/* UK Business Guide */}
-      <section className="mb-14">
-        <h2 className="text-2xl font-bold text-primary">{t('guide.title')}</h2>
-        <p className="mt-2 max-w-2xl text-slate-600">{t('guide.body')}</p>
+      {/* ITEM 2 — UK İş Rehberi 2025 (free download) */}
+      <section className="rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+        <h2 className="text-2xl font-bold text-primary">UK İş Rehberi 2025</h2>
+        <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
+          UK&rsquo;de iş kurmak isteyenler için ücretsiz başlangıç rehberi.
+        </p>
         <a
           href="/assets/guide.pdf"
-          className="mt-4 inline-block rounded-md border border-primary px-5 py-2 font-medium text-primary hover:bg-primary hover:text-white"
           download
+          className="mt-4 inline-block rounded-md border border-primary px-5 py-2 font-medium text-primary hover:bg-primary hover:text-white"
         >
-          {t('guide.download')}
+          Ücretsiz PDF indir →
         </a>
-      </section>
-
-      {/* Future books */}
-      <section className="rounded-lg bg-slate-50 p-6">
-        <h2 className="text-lg font-semibold text-primary">{t('future.title')}</h2>
-        <p className="mt-2 text-slate-600">{t('future.body')}</p>
       </section>
     </Page>
   );

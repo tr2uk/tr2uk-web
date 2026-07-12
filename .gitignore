@@ -8,3 +8,4 @@ next-env.d.ts
 
 # stray CV PDFs (not part of the site)
 Cetin_Karakaya_CV_2026*.pdf
+.vercel

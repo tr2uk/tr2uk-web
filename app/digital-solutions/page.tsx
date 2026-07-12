@@ -33,6 +33,15 @@ const gallery = [
   { src: '/assets/greenhouse-menu.webp', w: 1084, h: 836, caption: 'Vitrin menü kategorileri' },
 ];
 
+const yaazeGallery = [
+  { src: '/assets/yaaze-hero.webp', w: 1037, h: 833, caption: 'Marka karşılama ekranı (Tripadvisor 4.9 · 1.221 yorum)' },
+  { src: '/assets/yaaze-menu.webp', w: 799, h: 762, caption: 'Görselli menü kategorileri' },
+  { src: '/assets/yaaze-order.webp', w: 506, h: 876, caption: 'Masa QR ile müşteri sipariş ekranı' },
+  { src: '/assets/yaaze-choices.webp', w: 501, h: 883, caption: 'Sipariş özeti – modifiye & diyet seçenekleri' },
+  { src: '/assets/yaaze-allergies.webp', w: 394, h: 620, caption: 'Diyet & alerji onayı (14 alerjen)' },
+  { src: '/assets/yaaze-approval.webp', w: 562, h: 582, caption: 'Garson onay ekranı (müşteri siparişi → onay)' },
+];
+
 export default function DigitalPage() {
   return (
     <Page>
@@ -90,10 +99,35 @@ export default function DigitalPage() {
           </div>
         </div>
 
-        {/* Case study — Yaaze (placeholder) */}
-        <div className="mt-6 rounded-xl border border-slate-200 p-6 sm:p-8">
-          <h3 className="text-xl font-bold text-primary">Canlı: Yaaze – Hastings</h3>
-          <p className="mt-1 text-slate-600">Ekran görüntüleri yakında.</p>
+        {/* Case study — Yaaze */}
+        <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+          <h3 className="text-xl font-bold text-primary">
+            Canlı: Yaaze – Hastings Sahili
+          </h3>
+          <p className="mt-1 text-slate-600">
+            Tripadvisor Travellers&rsquo; Choice Best of the Best 2025 · 4.9/5 ·
+            1.221 yorum. Müşteri masadan QR ile kendi siparişini verir, garson
+            onaylar.
+          </p>
+
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {yaazeGallery.map((g) => (
+              <figure key={g.src}>
+                <div className="flex h-64 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-primary p-3">
+                  <Image
+                    src={g.src}
+                    width={g.w}
+                    height={g.h}
+                    alt={g.caption}
+                    className="max-h-full w-auto max-w-full object-contain"
+                  />
+                </div>
+                <figcaption className="mt-2 text-center text-sm text-slate-600">
+                  {g.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 

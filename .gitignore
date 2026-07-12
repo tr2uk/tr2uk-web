@@ -5,3 +5,6 @@ out
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+
+# stray CV PDFs (not part of the site)
+Cetin_Karakaya_CV_2026*.pdf

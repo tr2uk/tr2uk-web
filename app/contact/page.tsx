@@ -1,38 +1,30 @@
 import type { Metadata } from 'next';
-import { getT, routeMetadata } from '@/lib/content';
-import { Page, PageHeader, StaticForm, Field } from '@/components/ui';
+import { routeMetadata } from '@/lib/content';
+import { Page, PageHeader } from '@/components/ui';
+import ContactForm from '@/components/ContactForm';
 
-const t = getT('contact');
+const INTRO =
+  'Bir proje, danışmanlık ya da işbirliği için bize yazın. En kısa sürede dönüş yaparız.';
 
-export const metadata: Metadata = routeMetadata('contact', t('title'), t('intro'));
+export const metadata: Metadata = routeMetadata('contact', 'İletişim', INTRO);
 
 export default function ContactPage() {
   return (
     <Page>
-      <PageHeader title={t('title')} intro={t('intro')} />
+      <PageHeader title="İletişim" intro={INTRO} />
 
-      <p className="text-slate-600">
-        {t('emailLabel')}:{' '}
+      <ContactForm />
+
+      <p className="mt-8 text-slate-600">
+        E-posta:{' '}
         <a
           href="mailto:hello@tr2uk.com"
           className="text-primary underline decoration-accent"
         >
           hello@tr2uk.com
-        </a>{' '}
-        ·{' '}
-        <a
-          href="mailto:ck@tr2uk.com"
-          className="text-primary underline decoration-accent"
-        >
-          ck@tr2uk.com
         </a>
       </p>
-
-      <StaticForm submitLabel={t('form.message')}>
-        <Field label={t('form.name')} name="name" />
-        <Field label={t('form.email')} name="email" type="email" />
-        <Field label={t('form.message')} name="message" textarea />
-      </StaticForm>
+      <p className="mt-1 text-sm text-slate-500">UK–Türkiye ekseninde.</p>
     </Page>
   );
 }

@@ -4,8 +4,8 @@
 @theme {
   --color-primary: #0a192f;
   --color-accent: #64ffda;
-  --font-sans: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  --font-sans: var(--font-bai), "Bai Jamjuree", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
 }
 
 /* Expose the same tokens as plain CSS variables */

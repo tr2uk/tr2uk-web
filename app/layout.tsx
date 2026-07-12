@@ -1,5 +1,13 @@
 import type { Metadata } from 'next';
+import { Bai_Jamjuree } from 'next/font/google';
 import './globals.css';
+
+const bai = Bai_Jamjuree({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['300', '400', '500', '700'],
+  variable: '--font-bai',
+  display: 'swap',
+});
 
 const SITE_URL = 'https://tr2uk.com';
 
@@ -51,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="tr">
+    <html lang="tr" className={bai.variable}>
       <body>
         <script
           type="application/ld+json"

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://tr2uk.com/sitemap.xml

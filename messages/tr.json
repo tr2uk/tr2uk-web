@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "consulting": "Danışmanlık",
+    "digital": "Dijital Çözümler",
+    "publishing": "Yayıncılık",
+    "fire": "Yangın Güvenliği",
+    "food": "Gıda Hijyeni",
+    "blog": "İçgörüler",
+    "contact": "İletişim"
+  },
+  "common": {
+    "learnMore": "Daha fazla bilgi",
+    "getInTouch": "İletişime geçin",
+    "apply": "Başvur",
+    "send": "Gönder",
+    "submit": "Gönder",
+    "download": "İndir",
+    "visitSite": "Siteyi ziyaret et",
+    "liveDemo": "Canlı demo",
+    "placeholder": "Görsel yer tutucu",
+    "developedByUs": "Tarafımızca geliştirildi"
+  },
+  "home": {
+    "heroKicker": "Mühendislik Mantığı",
+    "heroTitle": "Türkiye ve Birleşik Krallık arasında köprü kuran çözümler",
+    "heroSubtitle": "Danışmanlık, dijital ürünler, yayıncılık ve uyumluluk hizmetleri tek çatı altında.",
+    "heroCta": "Bizimle çalışın",
+    "branchesTitle": "Faaliyet alanlarımız",
+    "branches": {
+      "consulting": "İş kurma, pazara giriş ve inovasyon danışmanlığı",
+      "digital": "POS, doğrulama ve web tabanlı yazılım ürünleri",
+      "publishing": "Kitaplar ve iş rehberleri",
+      "fire": "Yangın risk değerlendirmesi hizmetleri",
+      "food": "Gıda güvenliği ve hijyen danışmanlığı"
+    }
+  },
+  "consulting": {
+    "title": "Danışmanlık",
+    "intro": "Birleşik Krallık pazarına giriş, ortaklık yapıları ve inovasyon fonlaması konularında uçtan uca destek.",
+    "services": {
+      "marketEntry": {
+        "title": "Birleşik Krallık Pazara Giriş",
+        "body": "Şirket kuruluşu, uyumluluk ve operasyonel yerleşim için yol haritası."
+      },
+      "tripod": {
+        "title": "Tripod Modeli",
+        "body": "Kurucu, sermaye ve operasyon üçlüsünü dengeleyen yapılandırma."
+      },
+      "deadlock": {
+        "title": "Kilitlenme Çözümü",
+        "body": "Ortaklıklarda karar kilitlenmelerini çözmek için yapısal mekanizmalar."
+      },
+      "innovation": {
+        "title": "İnovasyon ve Fonlama",
+        "body": "Ar-Ge teşvikleri, hibe başvuruları ve inovasyon stratejisi."
+      }
+    },
+    "formTitle": "Başvuru formu",
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "company": "Şirket",
+      "message": "Projeniz hakkında kısa bilgi"
+    }
+  },
+  "digital": {
+    "title": "Dijital Çözümler",
+    "intro": "İşletmeler için üretim ortamında çalışan yazılım ürünleri.",
+    "pos": {
+      "title": "TR2UK-POS",
+      "body": "Restoran ve kafeler için sipariş, mutfak ve ödeme akışını yöneten POS sistemi.",
+      "greenhouse": "Green House Bistro Café – çok istasyonlu servis, mutfak biletleri ve gün sonu raporu.",
+      "yaaze": "Yaaze – masa yönetimi, ödeme bölme ve müşteri geri bildirimi.",
+      "screenshot": "Ekran görüntüsü yer tutucu"
+    },
+    "b2verify": {
+      "title": "B2Verify",
+      "body": "İşletmeden işletmeye doğrulama ve güven altyapısı.",
+      "link": "b2verify.com adresini ziyaret et"
+    },
+    "taxi": {
+      "title": "Taksi Ücret Hesaplayıcı",
+      "body": "Rota bazlı anlık ücret tahmini ve rezervasyon akışı.",
+      "scope": "Mesafe ve tarife tabanlı hesaplama, canlı rezervasyon entegrasyonu.",
+      "link": "Canlı demoyu aç"
+    },
+    "crossRefs": {
+      "title": "Ayrıca tarafımızca geliştirildi",
+      "fire": "TR2UK Yangın Güvenliği yazılımı",
+      "food": "TR2UK Gıda Hijyeni yazılımı"
+    }
+  },
+  "publishing": {
+    "title": "Yayıncılık",
+    "intro": "İş dünyasına yönelik kitaplar ve rehberler.",
+    "baird": {
+      "title": "The Baird Effect",
+      "body": "Girişimcilik ve karar alma üzerine bir çalışma.",
+      "cover": "Kapak görseli yer tutucu",
+      "amazon": "Amazon'da görüntüle"
+    },
+    "guide": {
+      "title": "Birleşik Krallık İş Rehberi",
+      "body": "Birleşik Krallık'ta iş kurmak isteyenler için kapsamlı rehber.",
+      "download": "Rehberi indir (PDF)"
+    },
+    "future": {
+      "title": "Yakında",
+      "body": "Yeni kitaplar hazırlık aşamasında."
+    }
+  },
+  "fire": {
+    "title": "TR2UK Yangın Güvenliği",
+    "intro": "Yangın Risk Değerlendirmesi (FRA) hizmetleri ve uyumluluk desteği.",
+    "body": "Ticari ve konut binaları için mevzuata uygun yangın risk değerlendirmesi.",
+    "formTitle": "Talep formu",
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "property": "Mülk adresi",
+      "details": "Değerlendirme detayları"
+    }
+  },
+  "food": {
+    "title": "TR2UK Gıda Güvenliği",
+    "intro": "Gıda güvenliği ve hijyen danışmanlığı.",
+    "body": "İşletmeler için HACCP, hijyen denetimi ve uyumluluk desteği.",
+    "formTitle": "Talep formu",
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "business": "İşletme adı",
+      "message": "İhtiyacınız"
+    }
+  },
+  "blog": {
+    "title": "İçgörüler",
+    "intro": "Sektör notları ve analizler.",
+    "readMore": "Devamını oku"
+  },
+  "contact": {
+    "title": "İletişim",
+    "intro": "Bize ulaşın.",
+    "emailLabel": "E-posta",
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "message": "Mesajınız"
+    }
+  },
+  "footer": {
+    "brandsTitle": "Markalarımız",
+    "brands": {
+      "digital": "TR2UK Dijital Çözümler",
+      "publishing": "TR2UK Yayıncılık",
+      "fire": "TR2UK Yangın Güvenliği",
+      "food": "TR2UK Gıda Güvenliği"
+    },
+    "contactTitle": "İletişim",
+    "rights": "Tüm hakları saklıdır."
+  }
+}

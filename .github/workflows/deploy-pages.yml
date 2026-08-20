@@ -1,5 +1,18 @@
 name: Deploy to GitHub Pages
 
+# tr2uk.com is one static page now, so there is nothing to build.
+#
+# ⛔ WHAT IS PUBLISHED IS ./site AND NOTHING ELSE. The whole repository is not
+# uploaded on purpose: docs/ carries internal handover notes and the two CVs at
+# the root were never served by the old site either. Anything that should be
+# public goes inside site/; anything outside it stays private by construction.
+#
+# ⛔ site/CNAME IS LOAD-BEARING. It is what holds the custom domain on the
+# Pages deployment. Publishing a tree without it points tr2uk.com at nothing -
+# a silent outage of the company's own address, behind a perfectly green build.
+# site/.nojekyll is the other one: without it Pages runs Jekyll over the output
+# and drops anything beginning with an underscore.
+
 on:
   push:
     branches: [main]
@@ -17,44 +30,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          cache: pnpm
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build (static export)
-        run: pnpm build
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # ⚠ Fail here rather than deploy a site with no domain and no index.
+      - name: Check what is about to be published
+        run: |
+          test -f site/index.html || { echo "site/index.html is missing"; exit 1; }
+          test -f site/CNAME     || { echo "site/CNAME is missing - tr2uk.com would stop resolving"; exit 1; }
+          echo "publishing $(du -sh site | cut -f1) from site/"
+          echo "domain: $(cat site/CNAME)"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

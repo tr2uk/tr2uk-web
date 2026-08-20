@@ -2,16 +2,20 @@ name: Deploy to GitHub Pages
 
 # tr2uk.com is one static page now, so there is nothing to build.
 #
-# ⛔ WHAT IS PUBLISHED IS ./site AND NOTHING ELSE. The whole repository is not
-# uploaded on purpose: docs/ carries internal handover notes and the two CVs at
-# the root were never served by the old site either. Anything that should be
-# public goes inside site/; anything outside it stays private by construction.
+# ⛔ PAGES SERVES THE BRANCH ROOT ON THIS REPOSITORY, NOT THIS WORKFLOW'S
+# ARTIFACT. The Pages settings are the legacy kind - build_type "legacy",
+# source main at "/" - so whatever sits at the top of main IS the website and
+# an Actions artifact is ignored. Learned the hard way on 20 August: the site
+# was first published into a site/ subfolder, this workflow went green, and
+# tr2uk.com answered GitHub's own 404 while tr2uk.com/site/index.html served
+# perfectly. So the page lives at the root and this workflow uploads the root
+# too, which keeps both mechanisms saying the same thing if the setting is
+# ever switched to "GitHub Actions".
 #
-# ⛔ site/CNAME IS LOAD-BEARING. It is what holds the custom domain on the
-# Pages deployment. Publishing a tree without it points tr2uk.com at nothing -
-# a silent outage of the company's own address, behind a perfectly green build.
-# site/.nojekyll is the other one: without it Pages runs Jekyll over the output
-# and drops anything beginning with an underscore.
+# ⛔ CNAME IS LOAD-BEARING. It is what holds the custom domain. A tree without
+# it points tr2uk.com at nothing, behind a perfectly green build. .nojekyll is
+# the other one: without it Pages runs Jekyll over the output and drops
+# anything beginning with an underscore.
 
 on:
   push:
@@ -45,15 +49,15 @@ jobs:
       # ⚠ Fail here rather than deploy a site with no domain and no index.
       - name: Check what is about to be published
         run: |
-          test -f site/index.html || { echo "site/index.html is missing"; exit 1; }
-          test -f site/CNAME     || { echo "site/CNAME is missing - tr2uk.com would stop resolving"; exit 1; }
-          echo "publishing $(du -sh site | cut -f1) from site/"
-          echo "domain: $(cat site/CNAME)"
+          test -f index.html || { echo "index.html is missing from the repo root"; exit 1; }
+          test -f CNAME      || { echo "CNAME is missing - tr2uk.com would stop resolving"; exit 1; }
+          echo "publishing $(du -sh . --exclude=.git | cut -f1) from the repository root"
+          echo "domain: $(cat CNAME)"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./site
+          path: .
 
       - name: Deploy to GitHub Pages
         id: deployment

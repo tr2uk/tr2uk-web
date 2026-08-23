@@ -254,12 +254,24 @@ footer a:hover{color:var(--accent);}
 
 <script>
 /* ⛔ THE ADDRESS IS NEVER IN THE MARKUP. Harvesters read HTML, not assembled
-   strings, and a plain mailto: in the page was the reason for the spam. Set
-   ENDPOINT to a form service (Formspree, Basin, your own route) and the form
-   posts there instead; until then it composes a message in the visitor's own
-   mail client, and the address is only ever built at the moment they click. */
+   strings, and a plain mailto: in the page was the reason for the spam. It is
+   put together only at the moment somebody clicks Send.
+
+   ⚠ AND THIS IS NOT YET A FORM THAT DELIVERS. With ENDPOINT empty the page
+   hands the message to the visitor's own mail client - which is fine on a
+   phone and does nothing at all on a desktop with no mail client set up. On
+   the company's only front door that is a real gap, so the note now shows the
+   address as well: if the mail app does not open, the reader can still write.
+
+   To close it properly, point ENDPOINT at a form service (Formspree, Basin,
+   or an endpoint of our own) configured to deliver to the address below. One
+   line here; the account is the part that has to be created by a human. */
 const ENDPOINT = "";
-const bits = ["hello","tr2uk",".","com"];
+/* ⚠ Operator, 20 August: enquiries go to the "digital" mailbox rather than
+   "hello". Spelled in pieces like everything else here - a comment inside a
+   script block is still served HTML, so writing the address out in full
+   defeats the entire point of the four strings below. */
+const bits = ["digital","tr2uk",".","com"];
 const addr = () => bits[0] + String.fromCharCode(64) + bits[1] + bits[2] + bits[3];
 
 document.getElementById("cf").addEventListener("submit", async (ev) => {
@@ -284,7 +296,11 @@ document.getElementById("cf").addEventListener("submit", async (ev) => {
   window.location.href = "mailto:" + addr() +
     "?subject=" + encodeURIComponent("Enquiry from tr2uk.com") +
     "&body=" + encodeURIComponent(body);
-  note.textContent = "Your mail app should open with the message ready to send.";
+  /* ⚠ The address goes on screen too, and only here - never in the markup.
+     Without it, a visitor whose mail client does not open is simply stuck on
+     a page with no way to reach anybody. */
+  note.textContent = "Your mail app should open with the message ready to send. "
+    + "If it does not, write to " + addr() + " and we will pick it up.";
 });
 </script>
 </body></html>
